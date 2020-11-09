@@ -2,14 +2,14 @@ package com.patrickauth.petapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class IntroPage extends AppCompatActivity {
 
     Button sign_up;
     TextView welcome;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.intro_page);
 
 
         updateView();
@@ -37,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
         sign_up.setVisibility(View.VISIBLE);
 
         sign_up.setOnClickListener(bh);
+
+    }
+
+    private void go_to_profile_selection(){
+
+        //Initialize the intent
+        Intent intent = new Intent( this, ProfileCreationActivity.class);
+
+        //Start the new activity with the new animation
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,0);
 
     }
 
@@ -77,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void onClick(View v){
 
-            welcome.setVisibility(View.INVISIBLE);
+            go_to_profile_selection();
 
         }
 
