@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/apricot">
 
     <ImageButton
         android:id="@+id/Logo"
         android:layout_width="297dp"
         android:layout_height="307dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginBottom="10dp"
 
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/welcome"
+
         android:background="@drawable/paw_print"
         android:gravity="center_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+         />
     <TextView
+        android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/welcome"
+        android:textSize="32dp"
+        android:textColor="@color/blackCoral"
+        android:textStyle= "bold"
+
         />
 
+    <Button
+        android:id = "@+id/sign_up"
+        android:layout_width="160dp"
+        android:layout_height="96dp"
+        android:background="@color/oxfordBlue"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/welcome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+
+        android:text="@string/sign_up"
+        android:textSize = "32dp"
+        android:textColor="@color/mediumTurquoise"/>
+
+
+</RelativeLayout>

@@ -3,5 +3,11 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name = "oxfordBlue">#030027</color>
+    <color name = "antiqueBrass">#DC9E82</color>
+    <color name = "mediumTurquoise">#78D5D7</color>
+    <color name = "blackCoral">#5B616A</color>
+    <color name = "apricot">#FFCAB1</color>
     <color name="colorTitle">#FFFFFF</color>
 </resources>
