@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">PetApp</string>
+
+    <!-- Global button labels -->
+    <string name="back_button">Back</string>
+    <string name="submit_button">Submit</string>
+
+    <!-- Profile Creation Views -->
+    <string name="profile_creation_title">Create Profile</string>
+    <string name="pet_sitter">Pet Sitter</string>
+    <string name="pet_owner">Pet Owner</string>
+
+    <!-- Pet Owner/Pet Profile Registration Form -->
+    <string name="pet_name_form_label">Pet Name</string>
+    <string name="pet_type_label">Pet Type</string>
+    <string name="pet_type_hint">Enter the species or breed of pet</string>
+    <string name="pet_registration_title">Create Pet Profile</string>
 </resources>
