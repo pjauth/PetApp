@@ -15,7 +15,13 @@
     <string name="pet_type_label">Pet Type</string>
     <string name="pet_type_hint">Enter the species or breed of pet</string>
     <string name="pet_registration_title">Create Pet Profile</string>
+    <string name="sitter_registration_title">Create Sitter Profile</string>
     <string name="welcome">Welcome to PetPanion</string>
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
+
+    <!-- Sitter Profile Registration Form -->
+    <string name="sitter_first_name_label_string">Sitter First Name</string>
+    <string name="sitter_last_name_label_string">Sitter Last Name</string>
+    <string name="sitter_phone_number_string">Phone Number</string>
 </resources>

@@ -3,4 +3,142 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/apricot"
+        android:password="false"
+        android:phoneNumber="false"
+        android:shadowDy="0"
+        android:singleLine="false"
+        android:text="@string/back_button"
+        android:textColor="@color/colorTitle"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/pet_creation_form_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/transparent"
+            android:password="false"
+            android:phoneNumber="false"
+            android:shadowDy="0"
+            android:singleLine="false"
+            android:text="@string/back_button"
+            android:textColor="@color/colorTitle"
+            app:layout_constraintBottom_toBottomOf="@+id/pet_registration_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sitter_registration_title" />
+
+        <TextView
+            android:id="@+id/sitter_registration_title"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:background="@color/oxfordBlue"
+            android:gravity="center"
+            android:text="@string/sitter_registration_title"
+            android:textColor="@color/antiqueBrass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/sitter_first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:text="@string/sitter_first_name_label_string"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_registration_title" />
+
+        <AutoCompleteTextView
+            android:id="@+id/sitter_last"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:hint="@string/pet_type_hint"
+            android:text="@string/sitter_last_name_label_string"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_first" />
+
+        <EditText
+            android:id="@+id/sitter_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:text="@string/sitter_phone_number_string"
+            android:ems="10"
+            android:gravity="start|top"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_last" />
+
+        <EditText
+            android:id="@+id/sitter_thing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:text="Something Else should go here"
+            android:ems="10"
+            android:gravity="start|top"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_phone_number" />
+
+        <Button
+            android:id="@+id/submit_sitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="162dp"
+            android:layout_marginLeft="162dp"
+            android:layout_marginEnd="162dp"
+            android:layout_marginRight="162dp"
+            android:layout_marginBottom="100dp"
+            android:text="@string/submit_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

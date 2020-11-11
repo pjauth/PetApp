@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ProfileCreationActivity extends AppCompatActivity {
     Button pet_sitter;
     Button pet_owner;
+    Button back;
 
 
     @Override
@@ -26,8 +27,19 @@ public class ProfileCreationActivity extends AppCompatActivity {
         ButtonHandler bh = new ButtonHandler();
         pet_sitter = findViewById(R.id.pet_sitter_profile_select);
         pet_owner = findViewById(R.id.pet_owner_profile_select);
+        back = findViewById(R.id.back_profile_creation);
+
         pet_owner.setOnClickListener(bh);
         pet_sitter.setOnClickListener(bh);
+        back.setOnClickListener(bh);
+    }
+
+    private void go_back_to_intro(){
+
+        Intent intent = new Intent(this, IntroPage.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,0);
+
     }
 
     public void selectedSitterProfile() {
@@ -53,6 +65,10 @@ public class ProfileCreationActivity extends AppCompatActivity {
 
                 case R.id.pet_sitter_profile_select:
                     selectedSitterProfile();
+                    break;
+
+                case R.id.back_profile_creation:
+                    go_back_to_intro();
                     break;
             }
         }
