@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ProfileCreationActivity">
+        </activity>
+        <activity android:name=".OwnerProfRegistrationActivity">
+        </activity>
+        <activity android:name=".SitterProfRegistrationActivity">
+        </activity>
+
     </application>
 
 </manifest>

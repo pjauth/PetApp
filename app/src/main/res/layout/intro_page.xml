@@ -41,5 +41,19 @@
         android:textSize = "32dp"
         android:textColor="@color/mediumTurquoise"/>
 
+    <Button
+        android:id = "@+id/log_in"
+        android:layout_width="80dp"
+        android:layout_height="49dp"
+        android:background="@color/oxfordBlue"
+
+        android:layout_below="@id/sign_up"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:text="@string/log_in"
+
+        android:textColor="@color/mediumTurquoise"/>
+
 
 </RelativeLayout>

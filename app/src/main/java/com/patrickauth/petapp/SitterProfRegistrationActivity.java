@@ -1,4 +1,6 @@
 package com.patrickauth.petapp;
 
-public class SitterProfRegistrationActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SitterProfRegistrationActivity extends AppCompatActivity {
 }

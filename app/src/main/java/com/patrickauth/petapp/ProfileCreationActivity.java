@@ -26,16 +26,20 @@ public class ProfileCreationActivity extends AppCompatActivity {
         ButtonHandler bh = new ButtonHandler();
         pet_sitter = findViewById(R.id.pet_sitter_profile_select);
         pet_owner = findViewById(R.id.pet_owner_profile_select);
+        pet_owner.setOnClickListener(bh);
+        pet_sitter.setOnClickListener(bh);
     }
 
     public void selectedSitterProfile() {
         Intent intent = new Intent(this, SitterProfRegistrationActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,0);
     }
 
     public void selectedOwnerProfile() {
         Intent intent = new Intent(this, OwnerProfRegistrationActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,0);
     }
 
     private class ButtonHandler implements View.OnClickListener{

@@ -15,6 +15,7 @@
     <string name="pet_type_label">Pet Type</string>
     <string name="pet_type_hint">Enter the species or breed of pet</string>
     <string name="pet_registration_title">Create Pet Profile</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">Welcome to PetPanion</string>
     <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
 </resources>
