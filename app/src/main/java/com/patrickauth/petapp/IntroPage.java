@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class IntroPage extends AppCompatActivity {
 
     Button sign_up;
+    Button log_in;
     TextView welcome;
 
 
@@ -33,9 +34,11 @@ public class IntroPage extends AppCompatActivity {
 
         sign_up = findViewById(R.id.sign_up);
         welcome = findViewById(R.id.welcome);
+        log_in = findViewById(R.id.log_in);
 
         sign_up.setVisibility(View.VISIBLE);
-
+        log_in.setVisibility(View.VISIBLE);
+        log_in.setOnClickListener(bh);
         sign_up.setOnClickListener(bh);
 
     }
@@ -51,6 +54,14 @@ public class IntroPage extends AppCompatActivity {
 
     }
 
+    private void go_to_login(){
+        //Initialize the intent
+        Intent intent = new Intent( this, LoginActivity.class);
+
+        //Start the new activity with the new animation
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,0);
+    }
 
 
     protected void onStart( ) {
@@ -87,9 +98,14 @@ public class IntroPage extends AppCompatActivity {
     private class ButtonHandler implements View.OnClickListener{
 
         public void onClick(View v){
-
-            go_to_profile_selection();
-
+            switch(v.getId()) {
+                case R.id.sign_up:
+                    go_to_profile_selection();
+                    break;
+                case R.id.log_in:
+                    go_to_login();
+                    break;
+            }
         }
 
     }

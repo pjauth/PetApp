@@ -49,7 +49,7 @@ public class ProfileCreationActivity extends AppCompatActivity {
     }
 
     public void selectedOwnerProfile() {
-        Intent intent = new Intent(this, OwnerProfRegistrationActivity.class);
+        Intent intent = new Intent(this, PetProfRegistrationActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right,0);
     }

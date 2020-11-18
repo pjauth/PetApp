@@ -10,12 +10,20 @@
     <string name="pet_sitter">Pet Sitter</string>
     <string name="pet_owner">Pet Owner</string>
 
+    <!-- Login -->
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+    <string name="login_submit_label">Login</string>
+    <string name="forgot_password_label">Forgot password?</string>
+
     <!-- Pet Owner/Pet Profile Registration Form -->
     <string name="pet_name_form_label">Pet Name</string>
     <string name="pet_type_label">Pet Type</string>
     <string name="pet_type_hint">Enter the species or breed of pet</string>
     <string name="pet_registration_title">Create Pet Profile</string>
     <string name="sitter_registration_title">Create Sitter Profile</string>
+    <string name="camera_label">Camera</string>
+    <string name="gallery_label">Gallery</string>
     <string name="welcome">Welcome to PetPanion</string>
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
