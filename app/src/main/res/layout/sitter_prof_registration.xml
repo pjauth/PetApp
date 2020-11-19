@@ -12,16 +12,13 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
         android:background="@color/apricot"
-        android:password="false"
-        android:phoneNumber="false"
         android:shadowDy="0"
         android:singleLine="false"
         android:text="@string/back_button"
         android:textColor="@color/colorTitle"
         />
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -34,13 +31,11 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:background="@android:color/transparent"
-            android:password="false"
-            android:phoneNumber="false"
             android:shadowDy="0"
             android:singleLine="false"
             android:text="@string/back_button"
             android:textColor="@color/colorTitle"
-            app:layout_constraintBottom_toBottomOf="@+id/pet_registration_title"
+            app:layout_constraintBottom_toBottomOf="@+id/sitter_registration_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/sitter_registration_title" />
 
@@ -67,7 +62,7 @@
             android:layout_marginEnd="35dp"
             android:layout_marginRight="35dp"
             android:ems="10"
-            android:importantForAutofill="no"
+            android:importantForAutofill="yes"
             android:inputType="textPersonName"
             android:text="@string/sitter_first_name_label_string"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,14 +97,14 @@
             android:text="@string/sitter_phone_number_string"
             android:ems="10"
             android:gravity="start|top"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
+            android:importantForAutofill="yes"
+            android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sitter_last" />
 
         <EditText
-            android:id="@+id/sitter_thing"
+            android:id="@+id/sitter_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -117,17 +112,17 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="35dp"
             android:layout_marginRight="35dp"
-            android:text="Something Else should go here"
+            android:text="@string/email_label"
             android:ems="10"
             android:gravity="start|top"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
+            android:importantForAutofill="yes"
+            android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sitter_phone_number" />
 
         <Button
-            android:id="@+id/submit_sitter"
+            android:id="@+id/next_sitter_registration_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="162dp"
@@ -135,7 +130,7 @@
             android:layout_marginEnd="162dp"
             android:layout_marginRight="162dp"
             android:layout_marginBottom="100dp"
-            android:text="@string/submit_button"
+            android:text="@string/next_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

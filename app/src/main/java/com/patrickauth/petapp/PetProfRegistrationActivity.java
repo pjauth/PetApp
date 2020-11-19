@@ -26,13 +26,15 @@ public class PetProfRegistrationActivity extends Activity {
     final int petTypeACThreshold = 1;
     ImageView petProfPic;
     Button back, camera, gallery;
-    String[] pet_types = {"Dog", "Cat", "Parrot", "Fish", "Snake", "Turtle", "Hamster", "Rabbit"};
+    protected String[] pet_types;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_profile_registration);
         ButtonHandler bh =  new ButtonHandler();
+
+        pet_types = getResources().getStringArray(R.array.pet_types);
 
         back = findViewById(R.id.pet_creation_form_back);
         back.setOnClickListener(bh);
@@ -52,7 +54,7 @@ public class PetProfRegistrationActivity extends Activity {
         autoCompletePetType.setTextColor(Color.BLACK);
     }
 
-    // TODO: get the image upload working, doesn't quite
+    // TODO: if someone could fix this thatd be cool :) idk what to do - conor
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

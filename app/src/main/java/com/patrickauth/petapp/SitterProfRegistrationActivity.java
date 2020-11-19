@@ -33,7 +33,7 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
         back = findViewById(R.id.back);
         back.setOnClickListener(bh);
 
-        submit = findViewById(R.id.submit_sitter);
+        submit = findViewById(R.id.next_sitter_registration_page);
         submit.setOnClickListener(bh);
 
 
@@ -58,6 +58,12 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
 
     }
 
+    private void go_to_preference_registration() {
+        Intent intent = new Intent(this, SitterJobPrefCreation.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, 0);
+    }
+
     private void go_back_to_intro() {
 
         Intent intent = new Intent(this, IntroPage.class);
@@ -76,8 +82,9 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
                     go_back_to_intro();
                     break;
 
-                case R.id.submit_sitter:
+                case R.id.next_sitter_registration_page:
                     get_sitter_info();
+                    go_to_preference_registration();
                     break;
             }
 
