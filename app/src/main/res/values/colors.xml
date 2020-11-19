@@ -13,4 +13,6 @@
     <color name = "apricot">#FFCAB1</color>
     <color name="colorTitle">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="red">#FF0000</color>
 </resources>

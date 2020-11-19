@@ -16,6 +16,11 @@
     <string name="login_submit_label">Login</string>
     <string name="forgot_password_label">Forgot password?</string>
 
+    <!-- Forgot ID -->
+    <string name="old_pass">Please Enter Old Password</string>
+    <string name="new_pass">Please Enter New Password</string>\
+    <string name="new2_pass">Please Re-Enter New Password</string>
+
     <!-- Pet Owner/Pet Profile Registration Form -->
     <string name="pet_name_form_label">Pet Name</string>
     <string name="pet_type_label">Pet Type</string>
