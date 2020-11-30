@@ -56,6 +56,10 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
 
         Log.w("MA", "First: "+sitter_info.get(0)+", Last: "+sitter_info.get(1)+", Phone: "+sitter_info.get(2));
 
+        Intent intent = new Intent(this, SitterProfilePage.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, 0);
+
     }
 
     private void go_to_preference_registration() {
