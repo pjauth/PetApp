@@ -31,6 +31,8 @@
         </activity>
         <activity android:name=".ChangePassword">
         </activity>
+        <activity android:name=".SitterProfilePage">
+        </activity>
 
     </application>
 

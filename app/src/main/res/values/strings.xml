@@ -46,4 +46,5 @@
     <string name="distance_slider_label">Max Job Distance:</string>
     <string name="travel_switch_label">Travel to jobs?</string>
     <string name="desired_pets_label">Desired Pets:</string>
+    <string name="pet_weight_seekbar_label">Weight range:</string>
 </resources>
