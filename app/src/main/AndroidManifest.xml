@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".SitterProfilePage">
         </activity>
+        <activity android:name=".JobListings">
+        </activity>
 
     </application>
 

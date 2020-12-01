@@ -8,10 +8,14 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
+    <style name="primaryButton">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="secondaryButton">
         <item name="android:background">@color/colorSecondary</item>
         <item name="android:textColor">@color/white</item>
-
     </style>
 
 </resources>

@@ -47,4 +47,7 @@
     <string name="travel_switch_label">Travel to jobs?</string>
     <string name="desired_pets_label">Desired Pets:</string>
     <string name="pet_weight_seekbar_label">Weight range:</string>
+
+    <!-- Job Listings -->
+    <string name="edit_search_filter_btn">Edit Filters</string>
 </resources>
