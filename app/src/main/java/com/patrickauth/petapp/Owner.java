@@ -1,5 +1,9 @@
 package com.patrickauth.petapp;
 
+import android.util.Log;
+
+import org.json.JSONObject;
+
 public class Owner {
     int ID;
     String firstName;
@@ -26,6 +30,27 @@ public class Owner {
         this.password = password;
         this.phone = phone;
 
+    }
+
+    public void getProfile() {
+
+        try {
+            String endpoint = "owner/get_profile.php?id="+ID;
+            Log.w("MA", "***** Calling endpoint:" + endpoint);
+            APICall profileCall = new APICall(endpoint);
+            JSONObject jsonObject = profileCall.sendRequest("GET");
+            Log.w("MA", "Received response:" + jsonObject);
+            firstName = jsonObject.getString("firstName");
+            lastName = jsonObject.getString("lastName");
+            address = jsonObject.getString("street");
+            city = jsonObject.getString("city");
+            state = jsonObject.getString("state");
+            zipCode = jsonObject.getInt("zipcode");
+            email = jsonObject.getString("email");
+            phone = jsonObject.getString("phone");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public int getID(){
