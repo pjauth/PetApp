@@ -15,7 +15,6 @@ public class IntroPage extends AppCompatActivity {
     Button log_in;
     TextView welcome;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +55,8 @@ public class IntroPage extends AppCompatActivity {
 
     private void go_to_login(){
         //Initialize the intent
-        Intent intent = new Intent( this, LoginActivity.class);
+        Intent intent = new Intent( this, OwnerProfile.class);
+        intent.putExtra("ownerId", 12);
 
         //Start the new activity with the new animation
         startActivity(intent);

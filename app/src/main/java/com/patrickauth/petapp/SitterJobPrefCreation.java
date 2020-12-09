@@ -12,7 +12,7 @@ public class SitterJobPrefCreation extends AppCompatActivity {
     SeekBar distanceSeekBar;
     SeekBar weightSeekBar;
     String[] petTypes;
-    private ArrayAdapter petTypeAdaptor;
+    ArrayAdapter<String> petTypeAdaptor;
     ListView petTypeList;
     TextView distanceLabel;
     TextView weightLabel;
@@ -47,7 +47,8 @@ public class SitterJobPrefCreation extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                distanceLabel.setText(progressValue + " miles");
+                String distanceText = progressValue + " miles";
+                distanceLabel.setText(distanceText);
             }
         });
 
@@ -65,9 +66,11 @@ public class SitterJobPrefCreation extends AppCompatActivity {
         // Override the listener for the seekbar so the textview is changed with it
         weightSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressValue = 0;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                progressValue = i;
+                // Round to the nearest multiple of 5 to make it more standardized
+                progressValue = (i + 4) / 5 * 5;
             }
 
             @Override
@@ -76,13 +79,14 @@ public class SitterJobPrefCreation extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                weightLabel.setText(progressValue + " lbs");
+                String labelText = progressValue + " lbs";
+                weightLabel.setText(labelText);
             }
         });
 
         // TODO: need to figure out where the pet selection will be stored
         petTypes = getResources().getStringArray(R.array.pet_types);
-        petTypeAdaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, petTypes);
+        petTypeAdaptor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, petTypes);
         petTypeList = (ListView) findViewById(R.id.petTypeList);
         petTypeList.setAdapter(petTypeAdaptor);
 

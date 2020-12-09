@@ -11,6 +11,10 @@
     <string name="pet_sitter">Pet Sitter</string>
     <string name="pet_owner">Pet Owner</string>
 
+
+    <!-- temp for testing -->
+    <string name="view_listings">View Listings</string>
+
     <!-- Login -->
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>

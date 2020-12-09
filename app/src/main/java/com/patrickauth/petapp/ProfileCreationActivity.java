@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileCreationActivity extends AppCompatActivity {
     Button pet_sitter;
-    Button pet_owner;
+    Button view_listings;
     Button back;
 
 
@@ -26,10 +26,10 @@ public class ProfileCreationActivity extends AppCompatActivity {
 
         ButtonHandler bh = new ButtonHandler();
         pet_sitter = findViewById(R.id.pet_sitter_profile_select);
-        pet_owner = findViewById(R.id.pet_owner_profile_select);
+        view_listings = findViewById(R.id.view_listings);
         back = findViewById(R.id.back_profile_creation);
 
-        pet_owner.setOnClickListener(bh);
+        view_listings.setOnClickListener(bh);
         pet_sitter.setOnClickListener(bh);
         back.setOnClickListener(bh);
     }
@@ -48,8 +48,8 @@ public class ProfileCreationActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right,0);
     }
 
-    public void selectedOwnerProfile() {
-        Intent intent = new Intent(this, PetProfRegistrationActivity.class);
+    public void viewListings() {
+        Intent intent = new Intent(this, JobListings.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right,0);
     }
@@ -59,8 +59,8 @@ public class ProfileCreationActivity extends AppCompatActivity {
         public void onClick(View v){
 
             switch(v.getId()){
-                case R.id.pet_owner_profile_select:
-                    selectedOwnerProfile();
+                case R.id.view_listings:
+                    viewListings();
                     break;
 
                 case R.id.pet_sitter_profile_select:
