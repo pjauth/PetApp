@@ -14,5 +14,11 @@
     <color name="colorTitle">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
 
+    <color name = "Red.co">#E63946</color>
+    <color name = "Cream.co">#F1FAEE</color>
+    <color name = "LightBlue.co">#A8DADC</color>
+    <color name = "SeaBlue.co">#457B9D</color>
+    <color name = "DarkBlue.co">#1D3557</color>
+
     <color name="red">#FF0000</color>
 </resources>

@@ -1,21 +1,37 @@
 package com.patrickauth.petapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request.Method;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = ProfileCreationActivity.class.getSimpleName();
 
-    private TextView username;
-    private TextView password;
+
+    private EditText username;
+    private EditText password;
     private Button forgotPass;
+    private Button loginSubmit;
     ArrayList<String> sitter_info = new ArrayList<String>();
 
     @Override
@@ -23,11 +39,30 @@ public class LoginActivity extends AppCompatActivity {
         ButtonHandler bh = new ButtonHandler();
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.login);
-        username = (TextView) findViewById(R.id.username_field);
-        password = (TextView) findViewById(R.id.password_field);
+        username = (EditText) findViewById(R.id.username_field);
+        password = (EditText) findViewById(R.id.password_field);
         forgotPass = findViewById(R.id.forgot_password);
         forgotPass.setOnClickListener(bh);
+        loginSubmit = findViewById(R.id.login_submit);
+        loginSubmit.setOnClickListener(bh);
+
+
+
+
+
+
     }
+
+    private void logIn(){
+        Log.d("MA","Clicking Log In");
+        String user = username.getText().toString();
+        String pass = password.getText().toString();
+
+
+    }
+
+
+
 
     private void go_to_password_change(){
         Intent intent = new Intent(this, ChangePassword.class);
@@ -35,11 +70,12 @@ public class LoginActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right, 0);
     }
 
-    private class ButtonHandler implements View.OnClickListener{
+    public class ButtonHandler implements View.OnClickListener{
 
         public void onClick(View v){
             switch(v.getId()) {
                 case R.id.login_submit:
+                    logIn();
                     break;
                 case R.id.forgot_password:
                     go_to_password_change();
