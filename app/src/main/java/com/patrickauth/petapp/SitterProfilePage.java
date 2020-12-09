@@ -18,8 +18,8 @@ public class SitterProfilePage extends Activity{
     private TextView txtEmail;
     private Button btnLogout;
 
-    private SQLiteHandler db;
-    private SessionManager session;
+    // private SQLiteHandler db;
+    // private SessionManager session;
 
 
     @Override
@@ -34,20 +34,20 @@ public class SitterProfilePage extends Activity{
         txtEmail = (TextView) findViewById(R.id.sitter_phone_number);
 
         // SqLite database handler
-        db = new SQLiteHandler(getApplicationContext());
+        // db = new SQLiteHandler(getApplicationContext());
 
         // session manager
-        session = new SessionManager(getApplicationContext());
+        // session = new SessionManager(getApplicationContext());
 
         // Fetching user details from sqlite
-        HashMap<String, String> user = db.getUserDetails();
+        // HashMap<String, String> user = db.getUserDetails();
 
-        String name = user.get("name");
-        String email = user.get("email");
+        // String name = user.get("name");
+        // String email = user.get("email");
 
         // Displaying the user details on the screen
-        txtName.setText(name);
-        txtEmail.setText(email);
+        // txtName.setText(name);
+        // txtEmail.setText(email);
 
     }
 

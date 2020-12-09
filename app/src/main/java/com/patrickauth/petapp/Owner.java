@@ -13,11 +13,11 @@ public class Owner {
     String state;
     int zipCode;
     String email;
-    String password;
+    // String password;
     String phone;
 
     public Owner(int ID, String firstName, String lastName, String address, String city,
-            String state, int zipCode, String email, String password, String phone){
+            String state, int zipCode, String email, String phone){
 
         this.ID = ID;
         this.firstName = firstName;
@@ -27,7 +27,7 @@ public class Owner {
         this.state = state;
         this.zipCode = zipCode;
         this.email = email;
-        this.password = password;
+        // this.password = password;
         this.phone = phone;
 
     }
@@ -81,9 +81,9 @@ public class Owner {
         return email;
     }
 
-    public String getPassword(){
-        return password;
-    }
+    // public String getPassword(){
+    //    return password;
+    //}
 
     public String getPhone(){
         return phone;
