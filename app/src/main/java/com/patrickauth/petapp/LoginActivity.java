@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request.Method;
@@ -17,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = ProfileCreationActivity.class.getSimpleName();
 
 
+    String email = "";
     private EditText username;
     private EditText password;
     private Button forgotPass;
@@ -53,12 +56,15 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void logIn(){
+    private void logIn() throws IOException, JSONException {
         Log.d("MA","Clicking Log In");
-        String user = username.getText().toString();
-        String pass = password.getText().toString();
-
-
+        email = username.getText().toString();
+        //Intent intent = new Intent(this, OwnerProfile.class);
+        Sitter sitter = new Sitter(1, "sitter@gmail.com");
+        sitter.getSitter();
+        //startActivity(intent);
+        //overridePendingTransition(R.anim.slide_in_right, 0);
+        //System.out.println(sitter);
     }
 
 
@@ -75,7 +81,13 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v){
             switch(v.getId()) {
                 case R.id.login_submit:
-                    logIn();
+                    try {
+                        logIn();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case R.id.forgot_password:
                     go_to_password_change();

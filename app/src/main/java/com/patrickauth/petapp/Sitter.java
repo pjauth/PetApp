@@ -1,5 +1,9 @@
 package com.patrickauth.petapp;
 
+import android.util.Log;
+
+import org.json.JSONObject;
+
 public class Sitter {
 
     int sitterID;
@@ -16,9 +20,9 @@ public class Sitter {
     String state;
     int zipCode;
 
-    public Sitter(int sitterID, String firstName, String lastName, String preference, int jobCount,
-            float rating, int points, String email, String phone, String address, String city,
-            String state, int zipCode){
+    public Sitter(int sitterID, /*String firstName, String lastName, String preference, int jobCount,
+            float rating, int points,*/ String email/*, String phone, String address, String city,
+            String state, int zipCode*/){
         this.sitterID = sitterID;
         this.firstName =firstName;
         this.lastName = lastName;
@@ -34,6 +38,26 @@ public class Sitter {
         this.state = state;
         this.zipCode = zipCode;
 
+    }
+
+    public void getSitter(){
+        try {
+            String endpoint = "sitter/get_profile_email.php?email="+email;
+            Log.w("MA", "***** Calling endpoint:" + endpoint);
+            APICall profileCall = new APICall(endpoint);
+            JSONObject jsonObject = profileCall.sendRequest("GET");
+            Log.w("MA", "Received response:" + jsonObject);
+            firstName = jsonObject.getString("firstName");
+            lastName = jsonObject.getString("lastName");
+            address = jsonObject.getString("street");
+            city = jsonObject.getString("city");
+            state = jsonObject.getString("state");
+            zipCode = jsonObject.getInt("zipcode");
+            email = jsonObject.getString("email");
+            phone = jsonObject.getString("phone");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public int getSitterID(){

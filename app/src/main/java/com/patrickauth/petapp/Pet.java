@@ -1,5 +1,9 @@
 package com.patrickauth.petapp;
 
+import android.util.Log;
+
+import org.json.JSONObject;
+
 public class Pet {
 
     int petID;
@@ -16,6 +20,24 @@ public class Pet {
         this.size = size;
         this.breed = breed;
         this.ownerID = ownerID;
+    }
+
+    public void getPet(){
+        try {
+            String endpoint = "pet/get_profile.php?id="+ID;
+            Log.w("MA", "***** Calling endpoint:" + endpoint);
+            APICall profileCall = new APICall(endpoint);
+            JSONObject jsonObject = profileCall.sendRequest("GET");
+            Log.w("MA", "Received response:" + jsonObject);
+            petID = jsonObject.getInt("petID");
+            name = jsonObject.getString("name");
+            weight = jsonObject.getInt("weight");
+            size = jsonObject.getString("size");
+            breed = jsonObject.getString("breed");
+            ownerID = jsonObject.getInt("ownerID");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public int getPetID(){

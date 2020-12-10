@@ -1,5 +1,9 @@
 package com.patrickauth.petapp;
 
+import android.util.Log;
+
+import org.json.JSONObject;
+
 public class Listing {
     int listingID;
     int posterID;
@@ -9,12 +13,12 @@ public class Listing {
     String startDate;
     String endDate;
     int active;
-    Float latitude;
-    Float longitude;
+    Double latitude;
+    Double longitude;
     int isSleepover;
 
     public Listing(int listingID, int posterID, int petID, int sitterID, String description,
-            String startDate, String endDate, int active, Float latitude, Float longitude,
+            String startDate, String endDate, int active, Double latitude, Double longitude,
             int isSleepover){
         this.listingID = listingID;
         this.posterID = posterID;
@@ -27,6 +31,30 @@ public class Listing {
         this.latitude = latitude;
         this.longitude = longitude;
         this.isSleepover = isSleepover;
+
+    }
+
+    public void getListing(){
+
+        try {
+            String endpoint = "owner/get_profile.php?id="+ID;
+            Log.w("MA", "***** Calling endpoint:" + endpoint);
+            APICall profileCall = new APICall(endpoint);
+            JSONObject jsonObject = profileCall.sendRequest("GET");
+            Log.w("MA", "Received response:" + jsonObject);
+            listingID = jsonObject.getInt("listingID");
+            posterID = jsonObject.getInt("posterID");
+            petID = jsonObject.getInt("petID");
+            sitterID = jsonObject.getInt("sitterID");
+            description = jsonObject.getString("description");
+            startDate = jsonObject.getString("startDate");
+            endDate = jsonObject.getString("endDate");
+            latitude = jsonObject.getDouble("latitude");
+            longitude = jsonObject.getDouble("longitude");
+            isSleepover = jsonObject.getInt("isSleepover");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

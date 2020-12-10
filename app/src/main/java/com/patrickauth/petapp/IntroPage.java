@@ -55,7 +55,7 @@ public class IntroPage extends AppCompatActivity {
 
     private void go_to_login(){
         //Initialize the intent
-        Intent intent = new Intent( this, OwnerProfile.class);
+        Intent intent = new Intent( this, LoginActivity.class);
         intent.putExtra("ownerId", 12);
 
         //Start the new activity with the new animation

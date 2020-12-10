@@ -14,13 +14,13 @@ import java.net.URL;
 import java.util.Arrays;
 
 public class APICall {
-    protected String endpoint;
+    protected String endpoint = "";
     protected URL urlEndpoint;
     protected final String baseURL = "http://paac.cs.loyola.edu/android/";
-    protected String responseString;
+    protected String responseString = "";
 
     public APICall(String endpoint) {
-        this.endpoint = baseURL + endpoint;
+        this.endpoint = baseURL + endpoint /*"sitter/get_profile_email.php?email=sitter@gmail.com"*/;
     }
 
     public JSONObject sendRequest(String requestType) throws IOException, JSONException {
