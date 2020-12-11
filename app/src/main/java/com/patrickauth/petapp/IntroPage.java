@@ -93,8 +93,7 @@ public class IntroPage extends AppCompatActivity implements LocationListener {
 
     private void go_to_login(){
         //Initialize the intent
-        Intent intent = new Intent( this, ListingDetail.class);
-        intent.putExtra("listingId", 25);
+        Intent intent = new Intent( this, LoginActivity.class);
 
         //Start the new activity with the new animation
         startActivity(intent);
