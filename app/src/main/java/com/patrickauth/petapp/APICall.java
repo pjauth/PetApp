@@ -34,7 +34,7 @@ public class APICall {
         HttpURLConnection con = (HttpURLConnection) urlEndpoint.openConnection();
         Log.w("MA", "***** Connection " + con);
         // optional default is GET
-        con.setRequestMethod("GET");
+        con.setRequestMethod(requestType);
         con.setRequestProperty("Accept", "application/json");
         //add request header
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
@@ -112,6 +112,6 @@ public class APICall {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return listingsArr;
     }
 }

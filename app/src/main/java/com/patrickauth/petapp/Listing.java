@@ -52,19 +52,10 @@ public class Listing {
     }
 
     public void getListing(Context context){
-        GPSTracker gps;
         double curLatitude = 39.322945;
         double curLongitude = -76.614172;
 
         try {
-            gps = new GPSTracker(context);
-            if(gps.canGetLocation()) {
-                curLatitude = gps.getLatitude();
-                curLongitude = gps.getLongitude();
-                Log.w("MA", "Location LAT: " + curLatitude + " LONG: " + curLongitude);
-            } else {
-                gps.showSettingsAlert();
-            }
             String endpoint = "postings/detail.php?id="+listingID+"&lat=39.322945&long=76.614172";
             Log.w("MA", "***** Calling endpoint:" + endpoint);
             APICall profileCall = new APICall(endpoint);
@@ -72,21 +63,38 @@ public class Listing {
             Log.w("MA", "Received response:" + jsonObject);
             JSONObject listingDetail = jsonObject.getJSONObject("listingDetail");
 
+            distance = jsonObject.getInt("distance");
+
             posterID = listingDetail.getJSONObject("owner").getInt("id");
             String ownerFirstName = listingDetail.getJSONObject("owner").getString("firstName");
+            Log.w("MA", "first name is " + ownerFirstName);
             String ownerLastName  = listingDetail.getJSONObject("owner").getString("lastName");
-            String ownerStreet = listingDetail.getJSONObject("owner").getString("firstName");
+            String street = listingDetail.getJSONObject("owner").getString("street");
+            String city = listingDetail.getJSONObject("owner").getString("city");
+            String state = listingDetail.getJSONObject("owner").getString("state");
+            int zipcode = listingDetail.getJSONObject("owner").getInt("zipcode");
+            String email = listingDetail.getJSONObject("owner").getString("email");
+            String phone = listingDetail.getJSONObject("owner").getString("phone");
 
-            listingID = jsonObject.getInt("listingID");
-            posterID = jsonObject.getInt("posterID");
-            petID = jsonObject.getInt("petID");
-            sitterID = jsonObject.getInt("sitterID");
-            description = jsonObject.getString("description");
-            startDate = jsonObject.getString("startDate");
-            endDate = jsonObject.getString("endDate");
-            latitude = jsonObject.getDouble("latitude");
-            longitude = jsonObject.getDouble("longitude");
-            isSleepover = jsonObject.getInt("isSleepover");
+            this.owner = new Owner(posterID, ownerFirstName, ownerLastName, street, city, state, zipcode, email, phone);
+
+            int petId = listingDetail.getJSONObject("pet").getInt("petId");
+            String petName = listingDetail.getJSONObject("pet").getString("name");
+            int petWeight = listingDetail.getJSONObject("pet").getInt("weight");
+            String petSize = listingDetail.getJSONObject("pet").getString("size");
+            String petBreed = listingDetail.getJSONObject("pet").getString("breed");
+            int petOwnerId = listingDetail.getJSONObject("pet").getInt("ownerId");
+            this.pet = new Pet(petId, petName, petWeight, petSize, petBreed, petOwnerId);
+
+            listingID = listingDetail.getJSONObject("listingDetails").getInt("listingID");
+            petID = listingDetail.getJSONObject("listingDetails").getInt("petID");
+            sitterID = listingDetail.getJSONObject("listingDetails").getInt("sitterID");
+            description = listingDetail.getJSONObject("listingDetails").getString("description");
+            startDate = listingDetail.getJSONObject("listingDetails").getString("startDate");
+            endDate = listingDetail.getJSONObject("listingDetails").getString("endDate");
+            latitude = listingDetail.getJSONObject("listingDetails").getDouble("latitude");
+            longitude = listingDetail.getJSONObject("listingDetails").getDouble("longitude");
+            isSleepover = listingDetail.getJSONObject("listingDetails").getInt("isSleepover");
         } catch (Exception e) {
             e.printStackTrace();
         }
