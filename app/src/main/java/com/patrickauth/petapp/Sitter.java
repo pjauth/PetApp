@@ -40,7 +40,7 @@ public class Sitter {
 
     }
 
-    public void getSitter(){
+    public JSONObject getSitter(){
         try {
             String endpoint = "sitter/get_profile_email.php?email="+email;
             Log.w("MA", "***** Calling endpoint:" + endpoint);
@@ -55,9 +55,13 @@ public class Sitter {
             zipCode = jsonObject.getInt("zipcode");
             email = jsonObject.getString("email");
             phone = jsonObject.getString("phone");
+            return jsonObject;
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return null;
+
     }
 
     public int getSitterID(){

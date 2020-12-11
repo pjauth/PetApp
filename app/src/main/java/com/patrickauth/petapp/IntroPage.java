@@ -101,7 +101,7 @@ public class IntroPage extends AppCompatActivity {
     protected void onResume( ) {
         super.onResume( );
         Log.w( "MA", "Inside MainActivity::onResume" );
-        updateView();
+//        updateView();
     }
 
     protected void onPause( ) {
