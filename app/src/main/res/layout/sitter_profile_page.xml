@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@color/blackCoral">
+    android:background = "@color/DarkBlue.co">
 
 
     <TextView
@@ -13,8 +13,8 @@
         android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         android:text = "Name of Sitter"
-        android:textColor="@color/antiqueBrass"
-        android:background = "@color/oxfordBlue"
+        android:textColor="@color/Red.co"
+        android:background = "@color/LightBlue.co"
         android:padding="10dp"
         />
 
@@ -26,8 +26,8 @@
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:text = "Name of Phone Number"
-        android:textColor="@color/antiqueBrass"
-        android:background = "@color/oxfordBlue"
+        android:textColor="@color/Red.co"
+        android:background = "@color/LightBlue.co"
         android:padding="10dp"
         />
 
@@ -39,33 +39,33 @@
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:text = "Number of Points the Sitter has"
-        android:textColor="@color/antiqueBrass"
-        android:background = "@color/oxfordBlue"
+        android:textColor="@color/Red.co"
+        android:background = "@color/LightBlue.co"
         android:padding="10dp"
         />
     <TextView
-        android:id = "@+id/rating"
+        android:id = "@+id/current_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below = "@id/sitter_points"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
-        android:text = "Other Stuff"
-        android:textColor="@color/antiqueBrass"
-        android:background = "@color/oxfordBlue"
+        android:text = "Go To Listings"
+        android:textColor="@color/Red.co"
+        android:background = "@color/LightBlue.co"
         android:padding="10dp"
         />
 
-    <TextView
-        android:id = "@+id/other_stuff2"
+    <Button
+        android:id = "@+id/matches_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below = "@id/rating"
+        android:layout_below = "@id/current_address"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:text = "Other Stuff"
-        android:textColor="@color/antiqueBrass"
-        android:background = "@color/oxfordBlue"
+        android:textColor="@color/Red.co"
+        android:background = "@color/Cream.co"
         android:padding="10dp"
         />
 
