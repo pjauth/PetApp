@@ -1,8 +1,16 @@
 package com.patrickauth.petapp;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.util.Log;
 
+import androidx.core.app.ActivityCompat;
+
 import org.json.JSONObject;
+
+import java.net.URL;
 
 public class Listing {
     int listingID;
@@ -13,12 +21,21 @@ public class Listing {
     String startDate;
     String endDate;
     int active;
-    Double latitude;
-    Double longitude;
+    double latitude;
+    double longitude;
     int isSleepover;
+    int distance;
+
+    public Owner owner;
+    public Sitter sitter;
+    public Pet pet;
+
+    public Listing(int listingID) {
+        this.listingID = listingID;
+    }
 
     public Listing(int listingID, int posterID, int petID, int sitterID, String description,
-            String startDate, String endDate, int active, Double latitude, Double longitude,
+            String startDate, String endDate, int active, double latitude, double longitude,
             int isSleepover){
         this.listingID = listingID;
         this.posterID = posterID;
@@ -34,14 +51,32 @@ public class Listing {
 
     }
 
-    public void getListing(){
+    public void getListing(Context context){
+        GPSTracker gps;
+        double curLatitude = 39.322945;
+        double curLongitude = -76.614172;
 
         try {
-            String endpoint = "owner/get_listing.php?id="+listingID+"?lat="+"?long=";
+            gps = new GPSTracker(context);
+            if(gps.canGetLocation()) {
+                curLatitude = gps.getLatitude();
+                curLongitude = gps.getLongitude();
+                Log.w("MA", "Location LAT: " + curLatitude + " LONG: " + curLongitude);
+            } else {
+                gps.showSettingsAlert();
+            }
+            String endpoint = "postings/detail.php?id="+listingID+"&lat=39.322945&long=76.614172";
             Log.w("MA", "***** Calling endpoint:" + endpoint);
             APICall profileCall = new APICall(endpoint);
             JSONObject jsonObject = profileCall.sendRequest("GET");
             Log.w("MA", "Received response:" + jsonObject);
+            JSONObject listingDetail = jsonObject.getJSONObject("listingDetail");
+
+            posterID = listingDetail.getJSONObject("owner").getInt("id");
+            String ownerFirstName = listingDetail.getJSONObject("owner").getString("firstName");
+            String ownerLastName  = listingDetail.getJSONObject("owner").getString("lastName");
+            String ownerStreet = listingDetail.getJSONObject("owner").getString("firstName");
+
             listingID = jsonObject.getInt("listingID");
             posterID = jsonObject.getInt("posterID");
             petID = jsonObject.getInt("petID");
@@ -56,6 +91,14 @@ public class Listing {
             e.printStackTrace();
         }
 
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public int getDistance() {
+        return this.distance;
     }
 
     public int getListingID(){

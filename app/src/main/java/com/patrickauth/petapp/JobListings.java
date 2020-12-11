@@ -16,19 +16,18 @@ public class JobListings extends Activity {
     ListView listingView;
     ArrayList<String> jobIds;
     ArrayAdapter listingAdapter;
+    APICall apiCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.job_listings);
-
-        listingView = (ListView) findViewById(R.id.job_search_listings);
+        apiCall = new APICall("");
+        apiCall.requestNearbyListings();
+        // listingView = (ListView) findViewById(R.id.job_search_listings);
     }
 
     public void displayList(ArrayList<String> items) {
-        items.add("Dog1");
-        items.add("Dog2");
-        items.add("Dog3");
         if(items != null) {
             listingAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
             listingView.setAdapter(listingAdapter);

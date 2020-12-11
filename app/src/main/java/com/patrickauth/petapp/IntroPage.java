@@ -31,7 +31,6 @@ public class IntroPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro_page);
-        updateView();
 
         try {
             if (ActivityCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
@@ -41,6 +40,7 @@ public class IntroPage extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        updateView();
     }
 
     private void updateView(){
@@ -48,6 +48,7 @@ public class IntroPage extends AppCompatActivity {
         if(gps.canGetLocation()) {
             curLatitude = gps.getLatitude();
             curLongitude = gps.getLongitude();
+            Log.w("MA", "Location LAT: " + curLatitude + " LONG: " + curLongitude);
         } else {
             gps.showSettingsAlert();
         }
@@ -78,8 +79,8 @@ public class IntroPage extends AppCompatActivity {
 
     private void go_to_login(){
         //Initialize the intent
-        Intent intent = new Intent( this, LoginActivity.class);
-        intent.putExtra("ownerId", 12);
+        Intent intent = new Intent( this, ListingDetail.class);
+        intent.putExtra("listingId", 6);
 
         //Start the new activity with the new animation
         startActivity(intent);

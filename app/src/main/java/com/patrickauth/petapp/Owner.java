@@ -16,6 +16,10 @@ public class Owner {
     // String password;
     String phone;
 
+    public Owner(int ID) {
+        this.ID = ID;
+    }
+
     public Owner(int ID, String firstName, String lastName, String address, String city,
             String state, int zipCode, String email, String phone){
 

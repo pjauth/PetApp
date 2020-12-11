@@ -3,6 +3,7 @@ package com.patrickauth.petapp;
 import android.os.StrictMode;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class APICall {
@@ -51,5 +53,65 @@ public class APICall {
 
         //Read JSON response and print
         return new JSONObject(responseString);
+    }
+
+    public ArrayList<Listing> requestNearbyListings() {
+        ArrayList<Listing> listingsArr = new ArrayList<>();
+        try {
+            String endpoint = "postings/list.php?lat=39.322920&long=-76.614330&weight=150";
+            Log.w("MA", "***** Calling endpoint:" + endpoint);
+            APICall profileCall = new APICall(endpoint);
+            JSONObject jsonObject = profileCall.sendRequest("GET");
+            JSONArray nearbyListings = jsonObject.getJSONArray("nearbyListings");
+
+            for(int i = 0; i < nearbyListings.length(); i++) {
+                Owner owner;
+                Pet pet;
+                Listing listing;
+                JSONObject itemJSON = nearbyListings.getJSONObject(i).getJSONObject("listing");
+                JSONObject ownerJSON = itemJSON.getJSONObject("owner");
+                JSONObject petJSON = itemJSON.getJSONObject("pet");
+                JSONObject listingJSON = itemJSON.getJSONObject("listingDetails");
+
+                int ownerId = ownerJSON.getInt("id");
+                String ownerFirstName = ownerJSON.getString("firstName");
+                String ownerLastName = ownerJSON.getString("lastName");
+                String street = ownerJSON.getString("street");
+                String city = ownerJSON.getString("city");
+                String state = ownerJSON.getString("state");
+                int zipcode = ownerJSON.getInt("zipcode");
+                String email = ownerJSON.getString("email");
+                String phone = ownerJSON.getString("phone");
+
+                int petId = petJSON.getInt("petId");
+                String petName = petJSON.getString("name");
+                int petWeight = petJSON.getInt("weight");
+                String petSize = petJSON.getString("size");
+                String petBreed = petJSON.getString("breed");
+                int petOwnerId = petJSON.getInt("ownerId");
+
+                int listingId = listingJSON.getInt("id");
+                int listingPosterId = listingJSON.getInt("posterId");
+                int listingPetId = listingJSON.getInt("petId");
+                String listingDesc = listingJSON.getString("description");
+                String listingSD = listingJSON.getString("startDate");
+                String listingED = listingJSON.getString("endDate");
+                int listingActive = listingJSON.getInt("active");
+                double listingLatitude = listingJSON.getDouble("latitude");
+                double listingLongitude = listingJSON.getDouble("longitude");
+                int listingIsSleepover = listingJSON.getInt("isSleepover");
+
+                owner = new Owner(ownerId, ownerFirstName, ownerLastName, street, city, state, zipcode, email, phone);
+                pet = new Pet(petId, petName, petWeight, petSize, petBreed, petOwnerId);
+                listing = new Listing(listingId, listingPosterId, listingPetId, 0, listingDesc, listingSD, listingED, listingActive, listingLatitude, listingLongitude, listingIsSleepover);
+                listing.owner = owner;
+                listing.pet = pet;
+                Log.w("MA", "Listing: " + listing.owner.getAddress());
+                listingsArr.add(listing);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
