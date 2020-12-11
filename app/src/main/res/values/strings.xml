@@ -29,6 +29,10 @@
     <!-- Pet Owner/Pet Profile Registration Form -->
     <string name="pet_name_form_label">Pet Name</string>
     <string name="pet_type_label">Pet Type</string>
+    <string name="street_address">Street Address</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zipcode">Zipcode</string>
     <string name="pet_type_hint">Enter the species or breed of pet</string>
     <string name="pet_registration_title">Create Pet Profile</string>
     <string name="sitter_registration_title">Create Sitter Profile</string>
