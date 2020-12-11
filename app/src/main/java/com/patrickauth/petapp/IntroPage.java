@@ -1,12 +1,18 @@
 package com.patrickauth.petapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,11 +21,11 @@ import android.widget.TextView;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-public class IntroPage extends AppCompatActivity {
+public class IntroPage extends AppCompatActivity implements LocationListener {
 
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
-    GPSTracker gps;
+    SharedPreferences sharedPreferences;
     double curLatitude;
     double curLongitude;
 
@@ -43,14 +49,22 @@ public class IntroPage extends AppCompatActivity {
         updateView();
     }
 
-    private void updateView(){
-        gps = new GPSTracker(IntroPage.this);
-        if(gps.canGetLocation()) {
-            curLatitude = gps.getLatitude();
-            curLongitude = gps.getLongitude();
-            Log.w("MA", "Location LAT: " + curLatitude + " LONG: " + curLongitude);
-        } else {
-            gps.showSettingsAlert();
+    private void updateView() {
+        try {
+            if (ActivityCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
+            }
+            LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
+            if (ActivityCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
+            }
+            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            double longitude = location.getLongitude();
+            double latitude = location.getLatitude();
+            Log.w("MA", "PHONE LOCATION IS " + latitude + " LONG: " + longitude);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         ButtonHandler bh = new ButtonHandler();
@@ -117,6 +131,11 @@ public class IntroPage extends AppCompatActivity {
     protected void onDestroy( ) {
         super.onDestroy( );
         Log.w( "MA", "Inside MainActivity::onDestroy" );
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+
     }
 
     private class ButtonHandler implements View.OnClickListener{

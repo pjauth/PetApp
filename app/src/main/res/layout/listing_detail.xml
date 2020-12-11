@@ -1,31 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/listing_owner_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="false"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="657dp"
-        android:text="@string/pet_owner"
-        android:visibility="visible" />
+        <RelativeLayout
+            android:id="@+id/scroll_list_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/listing_info_owner_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="50dp"
-        android:layout_toEndOf="@+id/listing_owner_label"
-        android:layout_toRightOf="@+id/listing_owner_label"
-        android:text="@string/pet_owner" />
-</RelativeLayout>
+            <TextView
+                android:id="@+id/listing_info_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/pet_owner"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/listing_owner_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_info_owner_name"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="657dp"
+                android:text="@string/pet_owner"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/listing_info_pet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_owner_label"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="false"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="-500dp"
+                android:text="@string/pet_owner"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/listing_pet_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_info_pet_name"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/pet_name_form_label"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/listing_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/distance_value2"
+                android:layout_alignParentBottom="false"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="170dp"
+                android:layout_toEndOf="@+id/listing_info_pet_name"
+                android:layout_toRightOf="@+id/listing_info_pet_name"
+                android:text="@string/pet_owner"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/listing_weight_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_weight"
+                android:layout_alignBottom="@+id/listing_pet_label"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/listing_info_pet_name"
+                android:layout_toRightOf="@+id/listing_info_pet_name"
+                android:text="@string/weight_units"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/distance_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="55dp"
+                android:layout_toEndOf="@+id/listing_info_owner_name"
+                android:layout_toRightOf="@+id/listing_info_owner_name"
+                android:text="@string/distance_slider_label" />
+
+            <TextView
+                android:id="@+id/distance_value2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/distance_value"
+                android:layout_marginStart="49dp"
+                android:layout_marginLeft="49dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/listing_info_owner_name"
+                android:layout_toRightOf="@+id/listing_info_owner_name"
+                android:text="@string/miles" />
+
+            <TextView
+                android:id="@+id/pet_size_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_pet_label"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/pet_size"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/pet_size_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_pet_label"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="33dp"
+                android:layout_toEndOf="@+id/pet_breed_label"
+                android:layout_toRightOf="@+id/pet_breed_label"
+                android:text="@string/pet_size" />
+
+            <TextView
+                android:id="@+id/pet_breed_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pet_size_label"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginLeft="51dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/pet_breed"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/pet_breed_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pet_size_value"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="35dp"
+                android:layout_toEndOf="@+id/pet_breed_label"
+                android:layout_toRightOf="@+id/pet_breed_label"
+                android:text="@string/pet_size" />
+
+            <TextView
+                android:id="@+id/listing_street"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pet_breed_label"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="49dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/listing_city_state_zip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_street"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="49dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="0dp"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/owner_address_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_city_state_zip"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/owner_address_label"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/owner_address_label2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/owner_phone"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/owner_contact_label"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/owner_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/owner_email"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="0dp"
+                android:autoLink="phone"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/owner_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/owner_address_label"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:autoLink="email"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/apply_to_listing_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listing_weight_label"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-166dp"
+                android:layout_marginEnd="169dp"
+                android:layout_marginRight="169dp"
+                android:text="@string/apply_to_listing" />
+
+        </RelativeLayout>
+
+</ScrollView>

@@ -54,4 +54,14 @@
 
     <!-- Job Listings -->
     <string name="edit_search_filter_btn">Edit Filters</string>
+
+    <!-- Job Details -->
+    <string name="weight_units">lbs</string>
+    <string name="miles">miles</string>
+    <string name="apply_to_listing">Apply!</string>
+    <string name="pet_size">Size:</string>
+    <string name="pet_breed">Breed:</string>
+    <string name="owner_address_label">Owner\'s Address</string>
+    <string name="owner_contact_label">Owner\'s Contact Information</string>
+
 </resources>
