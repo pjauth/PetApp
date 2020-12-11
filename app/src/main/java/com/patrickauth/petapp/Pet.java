@@ -24,7 +24,7 @@ public class Pet {
 
     public void getPet(){
         try {
-            String endpoint = "pet/get_profile.php?id="+ID;
+            String endpoint = "pet/get_profile.php?id="+petID;
             Log.w("MA", "***** Calling endpoint:" + endpoint);
             APICall profileCall = new APICall(endpoint);
             JSONObject jsonObject = profileCall.sendRequest("GET");
