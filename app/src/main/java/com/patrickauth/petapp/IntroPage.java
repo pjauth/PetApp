@@ -1,15 +1,27 @@
 package com.patrickauth.petapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+
 public class IntroPage extends AppCompatActivity {
+
+    private static final int REQUEST_CODE_PERMISSION = 2;
+    String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
+    GPSTracker gps;
+    double curLatitude;
+    double curLongitude;
 
     Button sign_up;
     Button log_in;
@@ -19,15 +31,26 @@ public class IntroPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro_page);
-
-
         updateView();
 
-
+        try {
+            if (ActivityCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     private void updateView(){
+        gps = new GPSTracker(IntroPage.this);
+        if(gps.canGetLocation()) {
+            curLatitude = gps.getLatitude();
+            curLongitude = gps.getLongitude();
+        } else {
+            gps.showSettingsAlert();
+        }
 
         ButtonHandler bh = new ButtonHandler();
 

@@ -37,7 +37,7 @@ public class Listing {
     public void getListing(){
 
         try {
-            String endpoint = "owner/get_profile.php?id="+ID;
+            String endpoint = "owner/get_listing.php?id="+listingID+"?lat="+"?long=";
             Log.w("MA", "***** Calling endpoint:" + endpoint);
             APICall profileCall = new APICall(endpoint);
             JSONObject jsonObject = profileCall.sendRequest("GET");
@@ -90,11 +90,11 @@ public class Listing {
         return active;
     }
 
-    public Float getLatitude(){
+    public Double getLatitude(){
         return latitude;
     }
 
-    public Float getLongitude(){
+    public Double getLongitude(){
         return longitude;
     }
 }
