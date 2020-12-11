@@ -1,27 +1,683 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/job_search_listings"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/Red.co">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/search_filter_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+    <View
+        android:id="@+id/header_box"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_margin="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:clickable="true"
+        android:onClick="refresh"
+        android:focusable="true"
+        android:background = "@color/DarkBlue.co"/>
+
+    <ImageView
+        android:id="@+id/profile_button"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:onClick="profile"
+        android:layout_alignParentEnd="true"
+        android:background = "@color/DarkBlue.co"/>
 
     <Button
-        android:id="@+id/edit_search_filter_button"
+        android:id="@+id/new_post_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="2dp"
-        android:text="@string/edit_search_filter_btn" />
+        android:text="LISTINGS"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:onClick="newPost"
+        android:background="@color/Cream.co" />
 
-</ListView>
+
+
+
+    <ScrollView
+        android:layout_below="@+id/header_box"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/SeaBlue.co">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <TableLayout
+                android:id="@+id/listing1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field1"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field1"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field1"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field1"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field2"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field2"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field2"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field2"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field3"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field3"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field3"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field3"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field4"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field4"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field4"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field4"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field5"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field5"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field5"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field5"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field6"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field6"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field6"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field6"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field7"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field7"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field7"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field7"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field8"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field8"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field8"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field8"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field9"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field9"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field9"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field9"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/listing10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Description: "
+                        android:layout_marginLeft="20dp"
+                        android:textColor = "@color/DarkBlue.co"/>
+                    <TextView
+                        android:id="@+id/description_field10"
+
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Start Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/start_field10"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "End Date: "
+                        android:layout_marginLeft = "20dp"/>
+                    <TextView
+                        android:id="@+id/end_field10"
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:text = "Sleep Over?: "
+                        android:layout_marginLeft = "20dp"/>
+
+                    <TextView
+                        android:id="@+id/sleepover_field10"
+
+                        android:layout_marginLeft = "20dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <Button
+                        android:layout_weight="1"
+                        android:text = "VIEW REVIEW: "
+                        android:layout_margin="10dp"
+                        android:onClick="viewReview"
+                        android:background="@color/Cream.co"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

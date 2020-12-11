@@ -59,12 +59,14 @@ public class LoginActivity extends AppCompatActivity {
     private void logIn() throws IOException, JSONException {
         Log.d("MA","Clicking Log In");
         email = username.getText().toString();
-        //Intent intent = new Intent(this, OwnerProfile.class);
-        Sitter sitter = new Sitter(1, "sitter@gmail.com");
-        sitter.getSitter();
-        //startActivity(intent);
-        //overridePendingTransition(R.anim.slide_in_right, 0);
-        //System.out.println(sitter);
+        Intent intent = new Intent(this, SitterProfilePage.class);
+        String email = username.getText().toString();
+        intent.putExtra("sitterEmail",email);
+//        Sitter sitter = new Sitter(1, "sitter@gmail.com");
+//        sitter.getSitter();
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, 0);
+
     }
 
 

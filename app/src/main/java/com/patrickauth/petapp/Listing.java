@@ -90,11 +90,11 @@ public class Listing {
         return active;
     }
 
-    public Double getLatitude(){
+    public double getLatitude(){
         return latitude;
     }
 
-    public Double getLongitude(){
+    public double getLongitude(){
         return longitude;
     }
 }

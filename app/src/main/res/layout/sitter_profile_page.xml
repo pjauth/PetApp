@@ -4,19 +4,13 @@
     android:layout_height="match_parent"
     android:background = "@color/blackCoral">
 
-    <ImageView
-        android:id = "@+id/sitter_pic"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/profile_pic" />
+
     <TextView
         android:id = "@+id/sitter_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below = "@id/sitter_pic"
-        android:layout_marginTop="50dp"
+
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         android:text = "Name of Sitter"
         android:textColor="@color/antiqueBrass"
@@ -50,7 +44,7 @@
         android:padding="10dp"
         />
     <TextView
-        android:id = "@+id/other_stuff1"
+        android:id = "@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below = "@id/sitter_points"
@@ -66,7 +60,7 @@
         android:id = "@+id/other_stuff2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below = "@id/other_stuff1"
+        android:layout_below = "@id/rating"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:text = "Other Stuff"
