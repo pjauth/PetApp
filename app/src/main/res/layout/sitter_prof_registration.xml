@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
@@ -18,7 +21,7 @@
         android:textColor="@color/colorTitle"
         />
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -30,7 +33,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
-            android:background="@android:color/transparent"
+            android:background="@color/colorSecondary"
             android:shadowDy="0"
             android:singleLine="false"
             android:text="@string/back_button"
@@ -46,7 +49,7 @@
             android:background="@color/oxfordBlue"
             android:gravity="center"
             android:text="@string/sitter_registration_title"
-            android:textColor="@color/antiqueBrass"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="35dp"
             android:layout_marginRight="35dp"
             android:ems="10"
@@ -70,13 +73,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sitter_registration_title" />
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/sitter_last"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="35dp"
             android:layout_marginRight="35dp"
             android:hint="@string/pet_type_hint"
@@ -91,14 +94,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="35dp"
             android:layout_marginRight="35dp"
-            android:text="@string/sitter_phone_number_string"
             android:ems="10"
             android:gravity="start|top"
             android:importantForAutofill="yes"
             android:inputType="phone"
+            android:text="@string/sitter_phone_number_string"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sitter_last" />
@@ -109,14 +112,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="35dp"
             android:layout_marginRight="35dp"
-            android:text="@string/email_label"
             android:ems="10"
             android:gravity="start|top"
             android:importantForAutofill="yes"
             android:inputType="textEmailAddress"
+            android:text="@string/email_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sitter_phone_number" />
@@ -129,11 +132,79 @@
             android:layout_marginLeft="162dp"
             android:layout_marginEnd="162dp"
             android:layout_marginRight="162dp"
-            android:layout_marginBottom="100dp"
             android:text="@string/next_button"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_zipcode" />
+
+        <EditText
+            android:id="@+id/sitter_street"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:ems="10"
+            android:inputType="none|textPostalAddress"
+            android:text="@string/street_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_email"
+            android:autofillHints="" />
+
+        <EditText
+            android:id="@+id/sitter_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:ems="10"
+            android:inputType="none|textCapWords"
+            android:text="@string/city"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_street" />
+
+        <EditText
+            android:id="@+id/sitter_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:ems="10"
+            android:inputType="none|textCapWords"
+            android:text="@string/state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_city" />
+
+        <EditText
+            android:id="@+id/sitter_zipcode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:ems="10"
+            android:inputType="none|number"
+            android:text="@string/zipcode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sitter_state" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

@@ -26,6 +26,7 @@ public class IntroPage extends AppCompatActivity implements LocationListener {
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
     SharedPreferences sharedPreferences;
+    public static final String SITTER_PREFS = "SitterPrefs" ;
     double curLatitude;
     double curLongitude;
 
@@ -37,6 +38,7 @@ public class IntroPage extends AppCompatActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro_page);
+        sharedPreferences = getSharedPreferences(SITTER_PREFS, Context.MODE_PRIVATE);
 
         try {
             if (ActivityCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
@@ -93,7 +95,7 @@ public class IntroPage extends AppCompatActivity implements LocationListener {
 
     private void go_to_login(){
         //Initialize the intent
-        Intent intent = new Intent( this, LoginActivity.class);
+        Intent intent = new Intent( this, ListingDetail.class);
 
         //Start the new activity with the new animation
         startActivity(intent);
