@@ -108,10 +108,11 @@ public class APICall {
                 listing.pet = pet;
                 Log.w("MA", "Listing: " + listing.owner.getAddress());
                 listingsArr.add(listing);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return listingsArr;
     }
 }

@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class JobListings extends Activity {
@@ -85,7 +87,8 @@ public class JobListings extends Activity {
         setContentView(R.layout.job_listings);
 
         apiCall = new APICall("");
-        apiCall.requestNearbyListings();
+        ArrayList<Listing> a = apiCall.requestNearbyListings();
+        Log.d("MA","ArrayList = "+a);
         // listingView = (ListView) findViewById(R.id.job_search_listings);
         updateView();
 
