@@ -6,205 +6,154 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/back"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:background="@color/apricot"
-        android:shadowDy="0"
-        android:singleLine="false"
-        android:text="@string/back_button"
-        android:textColor="@color/colorTitle"
-        />
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="288dp"
+        android:layout_marginBottom="37dp"
+        android:gravity="center"
+        android:text="@string/sitter_registration_title"
+        android:textColor="@color/white"
+        android:visibility="visible" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
 
-        <Button
-            android:id="@+id/pet_creation_form_back"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@color/colorSecondary"
-            android:shadowDy="0"
-            android:singleLine="false"
-            android:text="@string/back_button"
-            android:textColor="@color/colorTitle"
-            app:layout_constraintBottom_toBottomOf="@+id/sitter_registration_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/sitter_registration_title" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/sitter_registration_title"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:background="@color/oxfordBlue"
-            android:gravity="center"
-            android:text="@string/sitter_registration_title"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back_button" />
 
-        <EditText
-            android:id="@+id/sitter_first"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:ems="10"
-            android:importantForAutofill="yes"
-            android:inputType="textPersonName"
-            android:text="@string/sitter_first_name_label_string"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_registration_title" />
+            <TextView
+                android:id="@+id/registration_firstname_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sitter_first_name_label_string" />
 
-        <EditText
-            android:id="@+id/sitter_last"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:hint="@string/pet_type_hint"
-            android:text="@string/sitter_last_name_label_string"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_first" />
+            <EditText
+                android:id="@+id/sitter_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/sitter_phone_number"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:importantForAutofill="yes"
-            android:inputType="phone"
-            android:text="@string/sitter_phone_number_string"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_last" />
+            <TextView
+                android:id="@+id/registration_lastname_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sitter_last_name_label_string" />
 
-        <EditText
-            android:id="@+id/sitter_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:importantForAutofill="yes"
-            android:inputType="textEmailAddress"
-            android:text="@string/email_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_phone_number" />
+            <EditText
+                android:id="@+id/sitter_last"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/next_sitter_registration_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="162dp"
-            android:layout_marginLeft="162dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginRight="162dp"
-            android:text="@string/next_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_zipcode" />
+            <TextView
+                android:id="@+id/registration_email_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/email_label" />
 
-        <EditText
-            android:id="@+id/sitter_street"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:ems="10"
-            android:inputType="none|textPostalAddress"
-            android:text="@string/street_address"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_email"
-            android:autofillHints="" />
+            <EditText
+                android:id="@+id/sitter_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none|textEmailAddress" />
 
-        <EditText
-            android:id="@+id/sitter_city"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:ems="10"
-            android:inputType="none|textCapWords"
-            android:text="@string/city"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_street" />
+            <TextView
+                android:id="@+id/registration_phone_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sitter_phone_number_string" />
 
-        <EditText
-            android:id="@+id/sitter_state"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:ems="10"
-            android:inputType="none|textCapWords"
-            android:text="@string/state"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_city" />
+            <EditText
+                android:id="@+id/sitter_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none|phone" />
 
-        <EditText
-            android:id="@+id/sitter_zipcode"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:ems="10"
-            android:inputType="none|number"
-            android:text="@string/zipcode"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sitter_state" />
+            <TextView
+                android:id="@+id/registration_street_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/street_address" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/sitter_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none|textPostalAddress" />
+
+            <TextView
+                android:id="@+id/registration_city_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/city" />
+
+            <EditText
+                android:id="@+id/sitter_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none|textPostalAddress" />
+
+            <TextView
+                android:id="@+id/registration_state_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/state" />
+
+            <EditText
+                android:id="@+id/sitter_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none|textPostalAddress" />
+
+            <TextView
+                android:id="@+id/registration_zipcode_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/zipcode" />
+
+            <EditText
+                android:id="@+id/sitter_zipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none|textPostalAddress" />
+
+            <Button
+                android:id="@+id/next_sitter_registration_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/submit_button" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>

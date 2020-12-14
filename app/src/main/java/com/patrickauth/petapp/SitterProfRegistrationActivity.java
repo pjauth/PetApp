@@ -7,19 +7,21 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import java.util.ArrayList;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SitterProfRegistrationActivity extends AppCompatActivity {
     Button back;
     Button submit;
-    EditText sitter_first, sitter_last, sitter_phone, sitter_email, street, city, state, zipcode;
+    EditText editFirstName, editLastName, editPhone, editEmail, editStreet, editCity, editState, editZipCode;
+    String firstName, lastName, phone, email, street, city, state;
+    int zipcode;
     SharedPreferences sharedPreferences;
-    public static final String SITTER_PREFS = "SitterPrefs" ;
-    ArrayList<String> sitter_info = new ArrayList<String>();
+    public static final String SITTER_PREFS = "SitterPrefs";
 
 
     @Override
@@ -39,44 +41,69 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
 
     }
 
-    private void get_sitter_info(){
+    private void sendRegistration(){
+
+        APICall registrationCall = new APICall("sitter/registration.php");
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        sitter_first = findViewById(R.id.sitter_first);
-        editor.putString("firstName", sitter_first.getText().toString());
+        editFirstName = findViewById(R.id.sitter_first);
+        firstName = editFirstName.getText().toString();
+        editor.putString("firstName", firstName);
 
-        sitter_last = findViewById(R.id.sitter_last);
-        editor.putString("lastName", sitter_last.getText().toString());
+        editLastName = findViewById(R.id.sitter_last);
+        lastName = editLastName.getText().toString();
+        editor.putString("lastName", lastName);
 
-        sitter_phone = findViewById(R.id.sitter_phone_number);
-        editor.putString("phone", sitter_phone.getText().toString());
+        editPhone = findViewById(R.id.sitter_phone);
+        phone = editPhone.getText().toString();
+        editor.putString("phone", phone);
 
-        sitter_email = findViewById(R.id.sitter_email);
-        editor.putString("email", sitter_email.getText().toString());
+        editEmail = findViewById(R.id.sitter_email);
+        email = editEmail.getText().toString();
+        editor.putString("email", email);
 
-        street = findViewById(R.id.sitter_street);
-        editor.putString("street", street.getText().toString());
+        editStreet = findViewById(R.id.sitter_street);
+        street = editStreet.getText().toString();
+        editor.putString("street", street);
 
-        city = findViewById(R.id.sitter_city);
-        editor.putString("email", sitter_email.getText().toString());
+        editCity = findViewById(R.id.sitter_city);
+        city = editCity.getText().toString();
+        editor.putString("email", city);
 
-        state = findViewById(R.id.sitter_state);
-        editor.putString("state", state.getText().toString());
+        editState = findViewById(R.id.sitter_state);
+        state = editState.getText().toString();
+        editor.putString("state", state);
 
-        zipcode = findViewById(R.id.zip_code);
-        editor.putInt("zipcode", Integer.parseInt(zipcode.getText().toString()));
+        editZipCode = findViewById(R.id.sitter_zipcode);
+        zipcode = Integer.parseInt(editZipCode.getText().toString());
+        editor.putInt("zipcode", zipcode);
         editor.apply();
 
-        Log.w("MA", "First: "+sitter_info.get(0)+", Last: "+sitter_info.get(1)+", Phone: "+sitter_info.get(2));
+        try {
+            JSONObject sitterJSON = new JSONObject().put("firstName", firstName)
+                    .put("lastName", lastName)
+                    .put("email", email)
+                    .put("phone", phone)
+                    .put("address", street)
+                    .put("city", city)
+                    .put("state", state)
+                    .put("zipcode", zipcode);
+            JSONObject jsonString = new JSONObject().put("newSitter", sitterJSON);
+            registrationCall.sendJSONPost(jsonString);
 
-        Intent intent = new Intent(this, SitterProfilePage.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, 0);
+            // Log.w("MA", "First: "+ sitter_info.get(0)+", Last: "+sitter_info.get(1)+", Phone: "+sitter_info.get(2));
 
+            Intent intent = new Intent(this, SitterProfilePage.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, 0);
+        } catch(JSONException e) {
+
+        }
     }
 
     private void go_to_preference_registration() {
-        Intent intent = new Intent(this, SitterJobPrefCreation.class);
+        Intent intent = new Intent(this, SitterProfilePage.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, 0);
     }
@@ -100,8 +127,7 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
                     break;
 
                 case R.id.next_sitter_registration_page:
-                    get_sitter_info();
-                    go_to_preference_registration();
+                    sendRegistration();
                     break;
             }
 
