@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,9 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sitter_prof_registration);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         sharedPreferences = getSharedPreferences(SITTER_PREFS, Context.MODE_PRIVATE);
 
@@ -81,6 +85,7 @@ public class SitterProfRegistrationActivity extends AppCompatActivity {
         editor.apply();
 
         try {
+            // String formattedStreet = street.replaceAll(" ", "%20");
             JSONObject sitterJSON = new JSONObject().put("firstName", firstName)
                     .put("lastName", lastName)
                     .put("email", email)

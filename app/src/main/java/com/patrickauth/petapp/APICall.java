@@ -1,5 +1,6 @@
 package com.patrickauth.petapp;
 
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.StrictMode;
 import android.util.Log;
@@ -18,7 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class APICall {
+public class APICall extends AsyncTask<Void, Void, Void> {
     protected String endpoint = "";
     protected URL urlEndpoint;
     protected final String baseURL = "http://paac.cs.loyola.edu/android/";
@@ -143,5 +144,10 @@ public class APICall {
             e.printStackTrace();
         }
         return listingsArr;
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+        return null;
     }
 }
