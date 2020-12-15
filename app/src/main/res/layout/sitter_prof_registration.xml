@@ -18,11 +18,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/toolbar"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="288dp"
-        android:layout_marginBottom="37dp"
-        android:gravity="center"
+        android:gravity="center|center_horizontal|center_vertical"
         android:text="@string/sitter_registration_title"
         android:textColor="@color/white"
         android:visibility="visible" />
@@ -36,12 +32,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <Button
-                android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/back_button" />
 
             <TextView
                 android:id="@+id/registration_firstname_label"
@@ -146,6 +136,32 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none|textPostalAddress" />
+
+            <TextView
+                android:id="@+id/sitter_password_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/password_label" />
+
+            <EditText
+                android:id="@+id/sitter_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/sitter_confirm_password_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm_password" />
+
+            <EditText
+                android:id="@+id/sitter_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/next_sitter_registration_page"

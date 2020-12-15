@@ -16,7 +16,7 @@
     <string name="view_listings">View Listings</string>
 
     <!-- Login -->
-    <string name="username_label">Username</string>
+    <string name="username_label">Email</string>
     <string name="password_label">Password</string>
     <string name="login_submit_label">Login</string>
     <string name="forgot_password_label">Forgot password?</string>
@@ -47,6 +47,7 @@
     <string name="sitter_last_name_label_string">Sitter Last Name</string>
     <string name="sitter_phone_number_string">Phone Number</string>
     <string name="email_label">Email Address</string>
+    <string name="confirm_password">Confirm Password</string>
 
     <!-- Sitter Preferences Registration -->
     <string name="sitter_prefs_title">Sitter Preferences</string>
@@ -67,5 +68,6 @@
     <string name="pet_breed">Breed:</string>
     <string name="owner_address_label">Owner\'s Address</string>
     <string name="owner_contact_label">Owner\'s Contact Information</string>
+    <string name="weight">Weight:</string>
 
 </resources>

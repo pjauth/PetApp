@@ -68,13 +68,14 @@ public class ListingDetail extends Activity {
         address2.setText(secondAddrLine);
         address2.setVisibility(View.VISIBLE);
 
+        /*
         email = findViewById(R.id.owner_email);
         email.setText(listing.owner.getEmail());
         email.setVisibility(View.VISIBLE);
 
         phone = findViewById(R.id.owner_phone);
         phone.setText(listing.owner.getPhone());
-        phone.setVisibility(View.VISIBLE);
+        phone.setVisibility(View.VISIBLE); */
     }
 
     private class ButtonHandler implements View.OnClickListener {
