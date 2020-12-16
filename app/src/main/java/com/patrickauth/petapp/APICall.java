@@ -1,7 +1,11 @@
 package com.patrickauth.petapp;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.StrictMode;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,12 +14,12 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class APICall {
+public class APICall extends AsyncTask<Void, Void, Void> {
     protected String endpoint = "";
     protected URL urlEndpoint;
     protected final String baseURL = "http://paac.cs.loyola.edu/android/";
@@ -53,6 +57,33 @@ public class APICall {
 
         //Read JSON response and print
         return new JSONObject(responseString);
+    }
+
+    public void sendJSONPost(JSONObject jsonToSend) {
+        try {
+            this.urlEndpoint = new URL(this.endpoint);
+            HttpURLConnection con = (HttpURLConnection) urlEndpoint.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json; utf-8");
+            con.setRequestProperty("Accept", "application/json");
+            con.setDoOutput(true);
+            Log.w("MA", "*** Sending: " + jsonToSend.toString());
+            try(OutputStream os = con.getOutputStream()) {
+                byte[] input = jsonToSend.toString().getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+            try(BufferedReader br = new BufferedReader(
+                    new InputStreamReader(con.getInputStream(), "utf-8"))) {
+                StringBuilder response = new StringBuilder();
+                String responseLine = "";
+                while ((responseLine = br.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                Log.w("MA", "Response: " + response.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<Listing> requestNearbyListings() {
@@ -114,5 +145,10 @@ public class APICall {
             e.printStackTrace();
         }
         return listingsArr;
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+        return null;
     }
 }

@@ -3,7 +3,9 @@ package com.patrickauth.petapp;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +18,8 @@ import org.json.JSONObject;
 
 public class SitterProfilePage extends Activity{
 
+    SharedPreferences sharedPreferences;
+    public static final String SITTER_PREFS = "SitterPrefs";
 
     TextView sitterName;
     TextView sitterPhone;
@@ -40,6 +44,8 @@ public class SitterProfilePage extends Activity{
         setContentView(R.layout.sitter_profile_page);
         String s = getIntent().getStringExtra("sitterEmail");
         Sitter sitter = new Sitter(1,s);
+        sharedPreferences = getSharedPreferences(SITTER_PREFS, Context.MODE_PRIVATE);
+        /*
         JSONObject jSitter = sitter.getSitter();
         try {
             first = jSitter.getString("firstName");
@@ -52,7 +58,15 @@ public class SitterProfilePage extends Activity{
 
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
+
+        first = sharedPreferences.getString("firstName", "Conor");
+        last = sharedPreferences.getString("lastName", "OBrien");
+        points = "0";
+        rating = "0";
+        street = sharedPreferences.getString("street", "123 Main St");
+        city = sharedPreferences.getString("city", "Baltimore");
+        state = sharedPreferences.getString("state", "Maryland");
 
         updateView();
         sitterName.setText(first+" "+last);

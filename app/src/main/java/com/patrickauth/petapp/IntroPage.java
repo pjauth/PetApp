@@ -3,7 +3,6 @@ package com.patrickauth.petapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,8 +17,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class IntroPage extends AppCompatActivity implements LocationListener {
 
@@ -82,10 +79,10 @@ public class IntroPage extends AppCompatActivity implements LocationListener {
 
     }
 
-    private void go_to_profile_selection(){
+    private void go_to_sitter_registration(){
 
         //Initialize the intent
-        Intent intent = new Intent( this, ProfileCreationActivity.class);
+        Intent intent = new Intent( this, SitterProfRegistration.class);
 
         //Start the new activity with the new animation
         startActivity(intent);
@@ -144,7 +141,7 @@ public class IntroPage extends AppCompatActivity implements LocationListener {
         public void onClick(View v){
             switch(v.getId()) {
                 case R.id.sign_up:
-                    go_to_profile_selection();
+                    go_to_sitter_registration();
                     break;
                 case R.id.log_in:
                     go_to_login();

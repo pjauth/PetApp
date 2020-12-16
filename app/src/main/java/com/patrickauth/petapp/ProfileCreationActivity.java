@@ -43,7 +43,7 @@ public class ProfileCreationActivity extends AppCompatActivity {
     }
 
     public void selectedSitterProfile() {
-        Intent intent = new Intent(this, SitterProfRegistrationActivity.class);
+        Intent intent = new Intent(this, SitterProfRegistration.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right,0);
     }
