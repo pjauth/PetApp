@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.util.Log;
 
-import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +18,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+/**
+ * This class handles API calls to PetPanion. Instances of the APICall are created by passing in
+ * the string of the endpoint URL, which will be appended to the base URL of PetPanion.
+ *
+ * @author Pat Auth, Conor O'Brien
+ * @version 1.1
+ * @since 2020-12-16
+ */
 public class APICall extends AsyncTask<Void, Void, Void> {
     protected String endpoint = "";
     protected URL urlEndpoint;
@@ -59,7 +66,8 @@ public class APICall extends AsyncTask<Void, Void, Void> {
         return new JSONObject(responseString);
     }
 
-    public void sendJSONPost(JSONObject jsonToSend) {
+    // Returns a string of the response back
+    public String sendJSONPost(JSONObject jsonToSend) {
         try {
             this.urlEndpoint = new URL(this.endpoint);
             HttpURLConnection con = (HttpURLConnection) urlEndpoint.openConnection();
@@ -79,11 +87,13 @@ public class APICall extends AsyncTask<Void, Void, Void> {
                 while ((responseLine = br.readLine()) != null) {
                     response.append(responseLine.trim());
                 }
-                Log.w("MA", "Response: " + response.toString());
+                return response.toString();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     public ArrayList<Listing> requestNearbyListings() {

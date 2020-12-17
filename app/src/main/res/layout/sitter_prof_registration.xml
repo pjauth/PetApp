@@ -6,27 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/sitter_registration_title"
-        android:textColor="@color/white"
-        android:visibility="visible" />
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,10 +16,23 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/sitter_registration_title"
+                android:textColor="@color/DarkBlue.co"
+                android:textSize="24sp"
+                android:visibility="visible" />
+
+            <TextView
                 android:id="@+id/registration_firstname_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sitter_first_name_label_string" />
+                android:text="@string/sitter_first_name_label_string"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_first"
@@ -50,7 +45,8 @@
                 android:id="@+id/registration_lastname_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sitter_last_name_label_string" />
+                android:text="@string/sitter_last_name_label_string"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_last"
@@ -63,7 +59,8 @@
                 android:id="@+id/registration_email_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/email_label" />
+                android:text="@string/email_label"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_email"
@@ -76,7 +73,8 @@
                 android:id="@+id/registration_phone_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sitter_phone_number_string" />
+                android:text="@string/sitter_phone_number_string"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_phone"
@@ -89,7 +87,8 @@
                 android:id="@+id/registration_street_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/street_address" />
+                android:text="@string/street_address"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_street"
@@ -102,7 +101,8 @@
                 android:id="@+id/registration_city_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/city" />
+                android:text="@string/city"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_city"
@@ -115,7 +115,8 @@
                 android:id="@+id/registration_state_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/state" />
+                android:text="@string/state"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_state"
@@ -128,7 +129,8 @@
                 android:id="@+id/registration_zipcode_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zipcode" />
+                android:text="@string/zipcode"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_zipcode"
@@ -141,7 +143,8 @@
                 android:id="@+id/sitter_password_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/password_label" />
+                android:text="@string/password_label"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_password"
@@ -154,7 +157,8 @@
                 android:id="@+id/sitter_confirm_password_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/confirm_password" />
+                android:text="@string/confirm_password"
+                android:textColor="@color/DarkBlue.co" />
 
             <EditText
                 android:id="@+id/sitter_confirm_password"
@@ -167,7 +171,9 @@
                 android:id="@+id/next_sitter_registration_page"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/submit_button" />
+                android:background="@color/Red.co"
+                android:text="@string/submit_button"
+                android:textColor="@color/Cream.co" />
 
         </LinearLayout>
     </ScrollView>
