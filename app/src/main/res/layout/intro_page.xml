@@ -1,60 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/apricot">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightBlue.co"
+    android:orientation="vertical">
 
     <ImageButton
         android:id="@+id/Logo"
         android:layout_width="250dp"
         android:layout_height="250dp"
+        android:layout_above="@id/welcome"
+        android:layout_centerHorizontal="true"
+
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
 
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/welcome"
-
         android:background="@drawable/petpanion_logo"
-        android:gravity="center_vertical"
-         />
+        android:gravity="center_horizontal|center_vertical" />
+
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
         android:text="@string/welcome"
+        android:textColor="@color/DarkBlue.co"
         android:textSize="32dp"
-        android:textColor="@color/blackCoral"
-        android:textStyle= "bold"
 
-        />
+        android:textStyle="bold" />
 
     <Button
-        android:id = "@+id/sign_up"
+        android:id="@+id/sign_up"
         android:layout_width="160dp"
         android:layout_height="96dp"
-        android:background="@color/oxfordBlue"
-
         android:layout_below="@id/welcome"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
+        android:background="@color/oxfordBlue"
 
         android:text="@string/sign_up"
-        android:textSize = "32dp"
-        android:textColor="@color/mediumTurquoise"/>
+        android:textColor="@color/Cream.co"
+        android:textSize="32dp" />
 
     <Button
-        android:id = "@+id/log_in"
+        android:id="@+id/log_in"
         android:layout_width="80dp"
         android:layout_height="49dp"
-        android:background="@color/oxfordBlue"
-
         android:layout_below="@id/sign_up"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textSize="15dp"
+        android:background="@color/oxfordBlue"
         android:text="@string/log_in"
+        android:textColor="@color/mediumTurquoise"
 
-        android:textColor="@color/mediumTurquoise"/>
+        android:textSize="15dp" />
 
 
 </RelativeLayout>

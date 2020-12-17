@@ -30,11 +30,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/pet_owner"
                         android:textSize="26sp" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="50dp">
 
                     <TextView
                         android:id="@+id/listing_pet_label"
@@ -49,6 +55,10 @@
                         android:layout_height="wrap_content"
                         android:text="@string/pet_name_form_label"
                         android:textSize="26sp" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
                 </TableRow>
 
                 <TableRow
@@ -96,6 +106,7 @@
                         android:id="@+id/pet_size_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
                         android:text="@string/pet_size" />
 
                     <TextView
