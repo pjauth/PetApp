@@ -1,10 +1,7 @@
 package com.patrickauth.petapp;
 
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.StrictMode;
 import android.util.Log;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +23,7 @@ import java.util.ArrayList;
  * @version 1.1
  * @since 2020-12-16
  */
-public class APICall extends AsyncTask<Void, Void, Void> {
+public class APICall {
     protected String endpoint = "";
     protected URL urlEndpoint;
     protected final String baseURL = "http://paac.cs.loyola.edu/android/";
@@ -35,6 +32,8 @@ public class APICall extends AsyncTask<Void, Void, Void> {
     public APICall(String endpoint) {
         this.endpoint = baseURL + endpoint /*"sitter/get_profile_email.php?email=sitter@gmail.com"*/;
     }
+
+
 
     public JSONObject sendRequest(String requestType) throws IOException, JSONException {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -65,6 +64,8 @@ public class APICall extends AsyncTask<Void, Void, Void> {
         //Read JSON response and print
         return new JSONObject(responseString);
     }
+
+
 
     // Returns a string of the response back
     public String sendJSONPost(JSONObject jsonToSend) {
@@ -157,8 +158,4 @@ public class APICall extends AsyncTask<Void, Void, Void> {
         return listingsArr;
     }
 
-    @Override
-    protected Void doInBackground(Void... voids) {
-        return null;
-    }
 }
