@@ -12,6 +12,16 @@ import org.json.JSONObject;
 
 import java.net.URL;
 
+/**
+ * This class serves as the Model for Listings/Bookings posted by Pet Owners.
+ * The default constructor takes in the Listing's ID or the other constructor
+ * allows for a Listing object to be created by passing in all of the necessary
+ * parameters. Data from the PetPanion server about a listing can be fetched using {@code getListing()}
+ *
+ * @author Pat Auth, Conor O'Brien
+ * @version 1.1
+ * @since 2020-12-16
+ */
 public class Listing {
     int listingID;
     int posterID;
@@ -72,7 +82,7 @@ public class Listing {
 
     /**
      * Fetches data from the server for this listing. Current application context is passed in
-     * @param context
+     * @param context: the calling context
      */
     public void getListing(Context context){
         double curLatitude = 39.322945;
@@ -94,6 +104,7 @@ public class Listing {
 
             distance = jsonObject.getInt("distance");
 
+            // Parse the owner's information from the response
             posterID = listingDetail.getJSONObject("owner").getInt("id");
             String ownerFirstName = listingDetail.getJSONObject("owner").getString("firstName");
             Log.w("MA", "first name is " + ownerFirstName);
@@ -105,8 +116,10 @@ public class Listing {
             String email = listingDetail.getJSONObject("owner").getString("email");
             String phone = listingDetail.getJSONObject("owner").getString("phone");
 
+            // Create an owner object for this listing
             this.owner = new Owner(posterID, ownerFirstName, ownerLastName, street, city, state, zipcode, email, phone);
 
+            // Parse the pet information and create a Pet object for this listing
             int petId = listingDetail.getJSONObject("pet").getInt("petId");
             String petName = listingDetail.getJSONObject("pet").getString("name");
             int petWeight = listingDetail.getJSONObject("pet").getInt("weight");
@@ -115,6 +128,7 @@ public class Listing {
             int petOwnerId = listingDetail.getJSONObject("pet").getInt("ownerId");
             this.pet = new Pet(petId, petName, petWeight, petSize, petBreed, petOwnerId);
 
+            // Parse the listing information
             listingID = listingDetail.getJSONObject("listingDetails").getInt("listingID");
             petID = listingDetail.getJSONObject("listingDetails").getInt("petID");
             sitterID = listingDetail.getJSONObject("listingDetails").getInt("sitterID");

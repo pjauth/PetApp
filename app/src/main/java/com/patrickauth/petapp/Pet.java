@@ -4,6 +4,14 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
+/**
+ * This class serves as the Model for Pets. Pets belong to a Pet owner and are constructed
+ * by passing in all of the class's instance variables.
+ *
+ * @author Pat Auth, Conor O'Brien
+ * @version 1.0
+ * @since 2020-12-16
+ */
 public class Pet {
 
     int petID;
