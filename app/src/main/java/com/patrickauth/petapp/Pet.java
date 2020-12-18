@@ -21,6 +21,9 @@ public class Pet {
     String breed;
     int ownerID;
 
+    public Pet(int petId){
+        this.petID = petID;
+    }
     public Pet(int petID, String name, int weight, String size, String breed, int ownerID){
         this.petID = petID;
         this.name = name;

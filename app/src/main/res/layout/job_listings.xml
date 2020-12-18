@@ -60,7 +60,7 @@
                 android:id="@+id/listing1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="50dp">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -112,7 +112,7 @@
                     <Button
                         android:id="@+id/button1"
                         android:layout_weight="1"
-                        android:text = "VIEW REVIEW: "
+                        android:text = "See Listing: "
                         android:layout_margin="10dp"
                         android:onClick="viewReview"
                         android:background="@color/Cream.co"/>
@@ -123,7 +123,7 @@
                 android:id="@+id/listing2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="50dp">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -175,7 +175,7 @@
                     <Button
                         android:id="@+id/button2"
                         android:layout_weight="1"
-                        android:text = "VIEW REVIEW: "
+                        android:text = "See Listing: "
                         android:layout_margin="10dp"
                         android:onClick="viewReview"
                         android:background="@color/Cream.co"/>
@@ -186,7 +186,7 @@
                 android:id="@+id/listing3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="50dp">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -234,11 +234,11 @@
                 </TableRow>
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
                     <Button
                         android:id="@+id/button3"
                         android:layout_weight="1"
-                        android:text = "VIEW REVIEW: "
+                        android:text = "See Listing: "
                         android:layout_margin="10dp"
                         android:onClick="viewReview"
                         android:background="@color/Cream.co"/>
@@ -301,7 +301,7 @@
                     <Button
                         android:id="@+id/button4"
                         android:layout_weight="1"
-                        android:text = "VIEW REVIEW: "
+                        android:text = "See Listing: "
                         android:layout_margin="10dp"
                         android:onClick="viewReview"
                         android:background="@color/Cream.co"/>

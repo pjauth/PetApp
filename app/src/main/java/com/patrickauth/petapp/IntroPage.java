@@ -35,6 +35,7 @@ public class IntroPage extends AppCompatActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro_page);
+
         sharedPreferences = getSharedPreferences(SITTER_PREFS, Context.MODE_PRIVATE);
 
         try {

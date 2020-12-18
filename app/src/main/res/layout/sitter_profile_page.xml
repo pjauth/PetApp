@@ -63,7 +63,7 @@
         android:layout_below = "@id/current_address"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
-        android:text = "Other Stuff"
+        android:text = "Go To Listings"
         android:textColor="@color/Red.co"
         android:background = "@color/Cream.co"
         android:padding="10dp"

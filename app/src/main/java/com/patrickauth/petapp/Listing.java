@@ -228,4 +228,11 @@ public class Listing {
     public double getLongitude(){
         return longitude;
     }
+
+    /**
+     * @return if the listing is a sleepover or not
+     */
+    public int getIsSleepover(){
+        return isSleepover;
+    }
 }

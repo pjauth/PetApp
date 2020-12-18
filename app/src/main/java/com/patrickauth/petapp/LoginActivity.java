@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -35,6 +37,7 @@ import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
     // private static final String TAG = ProfileCreationActivity.class.getSimpleName();
+
     private EditText username;
     private EditText password;
     String email, rawPassword;
@@ -72,52 +75,74 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void logIn() throws IOException, JSONException {
         Log.d("MA","Clicking Log In");
         email = username.getText().toString();
         rawPassword = password.getText().toString();
+        LoginThread task = new LoginThread(this, email, rawPassword);
+        Log.d("MA","Start Thread");
+        task.start();
+        Log.w( "MA", "Inside Login, Thread started" );
 
-        // JSON to store the email and password
-        JSONObject credentialsJSON = new JSONObject();
-        // JSON to wrap the credentials/indentify that it's a login
-        JSONObject loginObject = new JSONObject();
+//
+//        // JSON to store the email and password
+//        JSONObject credentialsJSON = new JSONObject();
+//        // JSON to wrap the credentials/indentify that it's a login
+//        JSONObject loginObject = new JSONObject();
+//
+//        // String to store the password digest
+//        String passwordDigestString;
+//        // Byte array to store the digest after it gets hashed initially
+//        byte[] passwordDigest = null;
+//
+//        // Create the password digest
+//        try {
+//            MessageDigest md = MessageDigest.getInstance("SHA-256");
+//            md.update(rawPassword.getBytes());
+//            passwordDigest = md.digest();
+//        } catch(NoSuchAlgorithmException e) {
+//            Log.w("MA", "SHA not supported on this device");
+//            return;
+//        }
+//
+//        // Convert the byte array of the digest to a string for JSON
+//        StringBuffer stringBuffer = new StringBuffer();
+//        for (byte b : passwordDigest) {
+//            stringBuffer.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
+//        }
+//        passwordDigestString = stringBuffer.toString();
+//
+//        // Create the final JSON request
+//        credentialsJSON.put("email", email).put("password", passwordDigestString);
+//        loginObject.put("login", credentialsJSON);
+//
+//        // Initialize the API call with the login endpoint
+//        APICall loginCall = new APICall("sitter/login.php");
+//
+//        // Send the POST request and capture response
+//        String response = loginCall.sendJSONPost(loginObject);
+//
+//        // Get the boolean out of the response for the registration status
+//        JSONObject responseObject = new JSONObject(response);
+//        boolean successfulLogin = responseObject.getBoolean("login");
+//
+//        if(successfulLogin) {
+//            Intent intent = new Intent(this, SitterProfilePage.class);
+//            String email = username.getText().toString();
+//            intent.putExtra("sitterEmail", email);
+//            //        Sitter sitter = new Sitter(1, "sitter@gmail.com");
+//            //        sitter.getSitter();
+//            startActivity(intent);
+//            overridePendingTransition(R.anim.slide_in_right, 0);
+//        }
+//
+//        Toast.makeText(this, "There was an error logging you in, please try again.", Toast.LENGTH_LONG).show();
+    }
 
-        // String to store the password digest
-        String passwordDigestString;
-        // Byte array to store the digest after it gets hashed initially
-        byte[] passwordDigest = null;
-
-        // Create the password digest
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(rawPassword.getBytes());
-            passwordDigest = md.digest();
-        } catch(NoSuchAlgorithmException e) {
-            Log.w("MA", "SHA not supported on this device");
-            return;
-        }
-
-        // Convert the byte array of the digest to a string for JSON
-        StringBuffer stringBuffer = new StringBuffer();
-        for (byte b : passwordDigest) {
-            stringBuffer.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
-        }
-        passwordDigestString = stringBuffer.toString();
-
-        // Create the final JSON request
-        credentialsJSON.put("email", email).put("password", passwordDigestString);
-        loginObject.put("login", credentialsJSON);
-
-        // Initialize the API call with the login endpoint
-        APICall loginCall = new APICall("sitter/login.php");
-
-        // Send the POST request and capture response
-        String response = loginCall.sendJSONPost(loginObject);
-
-        // Get the boolean out of the response for the registration status
-        JSONObject responseObject = new JSONObject(response);
-        boolean successfulLogin = responseObject.getBoolean("login");
-
+    public void goToSitterProfilePage(Boolean successfulLogin){
         if(successfulLogin) {
             Intent intent = new Intent(this, SitterProfilePage.class);
             String email = username.getText().toString();

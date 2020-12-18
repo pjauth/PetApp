@@ -46,9 +46,8 @@ public class SitterProfRegistration extends AppCompatActivity {
 
     private void sendRegistration(){
 
-        APICall registrationCall = new APICall("sitter/registration.php");
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+
 
         editFirstName = findViewById(R.id.sitter_first);
         firstName = editFirstName.getText().toString();
@@ -119,38 +118,50 @@ public class SitterProfRegistration extends AppCompatActivity {
                     .put("zipcode", zipcode)
                     .put("password", passwordDigestString);
 
-            // Create the JSON object necessary for the PHP registration API
-            JSONObject jsonString = new JSONObject().put("newSitter", sitterJSON);
-            // Send the JSON and receive response about status of registration
-            String response = registrationCall.sendJSONPost(jsonString);
+            SitterProfileRegistrationThread task = new SitterProfileRegistrationThread( this , sitterJSON);
+            Log.w( "MA", "Start thread" );
+            task.start( );
+            Log.w( "MA", "Inside onCreate, Thread started" );
 
-            // Get the boolean out of the response for the registration status
-            JSONObject responseObject = new JSONObject(response);
-            boolean successfulRegistration = responseObject.getBoolean("registration");
+//            // Create the JSON object necessary for the PHP registration API
+//            JSONObject jsonString = new JSONObject().put("newSitter", sitterJSON);
+//            // Send the JSON and receive response about status of registration
+//            APICall registrationCall = new APICall("sitter/registration.php");
+//
+//            String response = registrationCall.sendJSONPost(jsonString);
+//
+//            // Get the boolean out of the response for the registration status
+//            JSONObject responseObject = new JSONObject(response);
+//            boolean successfulRegistration = responseObject.getBoolean("registration");
 
-            if(successfulRegistration) {
-                // Only save the registered profile if the response is valid
-                editor.putString("firstName", firstName);
-                editor.putString("lastName", lastName);
-                editor.putString("phone", phone);
-                editor.putString("email", email);
-                editor.putString("street", street);
-                editor.putString("email", city);
-                editor.putString("state", state);
-                editor.putInt("zipcode", zipcode);
-                editor.apply();
 
-                Intent intent = new Intent(this, SitterProfilePage.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, 0);
-            } else {
-                Toast.makeText(this, "There was an error creating your account. Please try again.", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, SitterProfilePage.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, 0);
-            }
         } catch(Exception e) {
+            Log.d("MA", "Exception" + e);
+        }
+    }
 
+    public void goToSitterProf(Boolean successfulRegistration){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if(successfulRegistration) {
+            // Only save the registered profile if the response is valid
+            editor.putString("firstName", firstName);
+            editor.putString("lastName", lastName);
+            editor.putString("phone", phone);
+            editor.putString("email", email);
+            editor.putString("street", street);
+            editor.putString("email", city);
+            editor.putString("state", state);
+            editor.putInt("zipcode", zipcode);
+            editor.apply();
+
+            Intent intent = new Intent(this, SitterProfilePage.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, 0);
+        } else {
+            Toast.makeText(this, "There was an error creating your account. Please try again.", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, SitterProfilePage.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, 0);
         }
     }
 
