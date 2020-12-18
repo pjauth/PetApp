@@ -36,7 +36,11 @@ import androidx.core.app.ActivityCompat;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
+<<<<<<< HEAD
     // private static final String TAG = ProfileCreationActivity.class.getSimpleName();
+=======
+//    private static final String TAG = ProfileCreationActivity.class.getSimpleName();
+>>>>>>> af0ddbaac5a77dc78d30c80fec98e948658cda29
 
     private EditText username;
     private EditText password;
