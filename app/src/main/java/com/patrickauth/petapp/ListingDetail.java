@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class ListingDetail extends Activity {
     protected Listing listing;
-    TextView ownerFirstLast, petName, weight, distance, sizeValue, breedValue, address1, address2, email, phone;
+    TextView ownerFirstLast, petName, weight, distance, sizeValue, breedValue, sleepover;
     Button applyToListing;
 
     @Override
@@ -59,14 +59,10 @@ public class ListingDetail extends Activity {
         breedValue.setText(listing.pet.getBreed());
         breedValue.setVisibility(View.VISIBLE);
 
-        address1 = findViewById(R.id.listing_street);
-        address1.setText(listing.owner.address);
-        address1.setVisibility(View.VISIBLE);
-
-        address2 = findViewById(R.id.listing_city_state_zip);
-        String secondAddrLine = listing.owner.city + ", " + listing.owner.state + " " + listing.owner.zipCode;
-        address2.setText(secondAddrLine);
-        address2.setVisibility(View.VISIBLE);
+        sleepover = findViewById(R.id.sleepover_value);
+        String sleepoverValue = (listing.isSleepover == 0) ? "No" : "Yes";
+        sleepover.setText(sleepoverValue);
+        sleepover.setVisibility(View.VISIBLE);
 
         /*
         email = findViewById(R.id.owner_email);

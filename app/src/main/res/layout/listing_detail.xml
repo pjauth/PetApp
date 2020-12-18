@@ -22,6 +22,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/pet_owner"
+                        android:textColor="@color/colorPrimaryDark"
                         android:visibility="visible" />
 
                     <TextView
@@ -47,6 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/pet_name_form_label"
+                        android:textColor="@color/colorPrimaryDark"
                         android:visibility="visible" />
 
                     <TextView
@@ -70,6 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/weight"
+                        android:textColor="@color/colorPrimaryDark"
                         android:visibility="visible" />
 
                     <TextView
@@ -89,7 +92,8 @@
                         android:id="@+id/distance_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/distance_slider_label" />
+                        android:text="@string/distance_slider_label"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <TextView
                         android:id="@+id/distance_value2"
@@ -103,18 +107,37 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/pet_size_value"
+                        android:id="@+id/sleepover_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
-                        android:text="@string/pet_size" />
+                        android:text="@string/distance_slider_label"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:id="@+id/sleepover_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/miles" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/pet_size_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/pet_size"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/pet_size_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="50dp"
+                        android:text="@string/pet_size" />
                 </TableRow>
 
                 <TableRow
@@ -126,6 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/pet_breed"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="18sp" />
 
                     <TextView
@@ -139,30 +163,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/listing_city_state_zip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/listing_street"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
                     <Button
                         android:id="@+id/apply_to_listing_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/apply_to_listing" />
+                        android:background="@color/Red.co"
+                        android:text="@string/apply_to_listing"
+                        android:textColor="@color/Cream.co" />
                 </TableRow>
             </TableLayout>
 
